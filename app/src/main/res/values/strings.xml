@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">GhienPhim</string>
+    <string name="Logo_img">Logo image</string>
+    <string name="dangnhap">ĐĂNG NHẬP</string>
+    <string name="dangky">ĐĂNG KÝ</string>
+    <string name="andanh">ẨN DANH</string>
+    <string name="copyright">Fairytail@2020</string>
+    <string name="register_img">register_img</string>
+    <string name="email">Email</string>
+    <string name="tendangnhap">Tên đăng nhập</string>
+    <string name="matkhau">Mật khẩu</string>
+    <string name="xacnhanmatkhau">Xác nhận mật khẩu</string>
+    <string name="tuoi">Tuổi</string>
+    <string name="TheLoai">Thể loại</string>
+    <string name="item1">Item 1</string>
+    <string name="item2">Item 2</string>
+    <string name="item3">Item 3</string>
+    <string name="item4">Item 4</string>
+
+</resources>
