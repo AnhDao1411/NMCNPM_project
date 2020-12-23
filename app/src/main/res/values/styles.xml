@@ -22,7 +22,7 @@
         <item name="android:layout_marginTop">30dp</item>
         <item name="android:layout_marginEnd">85dp</item>
         <item name="android:layout_marginBottom">10dp</item>
-        <item name="android:background">@drawable/round_edit_text</item>
+        <item name="android:background">@drawable/round_button_lightyellow</item>
         <item name="android:gravity">center</item>
         <item name="android:imeOptions">actionGo</item>
         <item name="android:inputType">textCapWords</item>
@@ -37,7 +37,7 @@
         <item name="android:textSize">16sp</item>
     </style>
     <style name="edit_text">
-        <item name="android:background">@drawable/round_edit_text</item>
+        <item name="android:background">@drawable/round_button_lightyellow</item>
         <item name="android:gravity">center</item>
         <item name="android:imeOptions">actionGo</item>
         <item name="android:inputType">textCapWords</item>
