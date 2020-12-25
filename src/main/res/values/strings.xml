@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">GhienPhim</string>
+    <string name="Logo_img">Logo image</string>
+    <string name="dangnhap">ĐĂNG NHẬP</string>
+    <string name="dangxuat">ĐĂNG XUẤT</string>
+    <string name="dangky">ĐĂNG KÝ</string>
+    <string name="andanh">ẨN DANH</string>
+    <string name="copyright">Fairytail@2020</string>
+    <string name="register_img">register_img</string>
+    <string name="email">Email</string>
+    <string name="tendangnhap">Tên đăng nhập</string>
+    <string name="matkhau">Mật khẩu</string>
+    <string name="xacnhanmatkhau">Xác nhận mật khẩu</string>
+    <string name="tuoi">Tuổi</string>
+    <string name="TheLoai">Thể loại</string>
+    <string name="item1">Item 1</string>
+    <string name="item2">Item 2</string>
+    <string name="item3">Item 3</string>
+    <string name="item4">Item 4</string>
+    <string name="quocgia">Quốc Gia</string>
+    <string name="LogIn_Img">LogIn_Img</string>
+    <string name="btn_QG">Quốc Gia</string>
+    <string name="btn_TL">Thể Loại</string>
+    <string name="btn_N">Năm</string>
+    <string name="btn_moreOp">...</string>
+
+    <string name="qg_My">Mỹ</string>
+    <string name="qg_Nga">Nga</string>
+    <string name="qg_Nhat">Nhật</string>
+    <string name="qg_Phap">Pháp</string>
+    <string name="qg_Han">Hàn Quốc</string>
+    <string name="qg_Trung">Trung Quốc</string>
+    <string name="qg_Viet">Việt Nam</string>
+    <string name="qg_Thai">Thái Lan</string>
+    <string name="qg_Anh">Anh Quốc</string>
+    <string name="qg_Philip">Philipines</string>
+
+    <string name="nam_1980">1980</string>
+    <string name="nam_1981">1981</string>
+    <string name="nam_1982">1982</string>
+    <string name="nam_1983">1983</string>
+    <string name="nam_1984">1984</string>
+
+    <string name="favfilm">Phim Yêu Thích</string>
+    <string name="his">Lịch Sử</string>
+    <string name="changpas">Đổi Mật Khẩu</string>
+</resources>
