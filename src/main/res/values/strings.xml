@@ -44,4 +44,8 @@
     <string name="favfilm">Phim Yêu Thích</string>
     <string name="his">Lịch Sử</string>
     <string name="changpas">Đổi Mật Khẩu</string>
+    <string name="comment">Viết Bình Luận</string>
+    <string name="num_com">Bình Luận @add variable???</string>
+    <string name="user_img">user_img</string>
+    <string name="profile_name">profile_name</string>
 </resources>
