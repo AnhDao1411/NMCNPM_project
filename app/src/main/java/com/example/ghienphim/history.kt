@@ -12,10 +12,48 @@ class history : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_history)
 
-        return_btn3.setOnClickListener {
+        //link to Homescreen
+        home_his.setOnClickListener {
+            val intent = Intent(this, HomeScreen::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        //link to Profile by return_btn2
+
+
+        // delete all history film by trash
+        // link to screen desciption
+
+        his_1.setOnClickListener {
             val intent = Intent(this, Description::class.java)
             startActivity(intent)
             finish()
         }
+
+        his_2.setOnClickListener {
+            val intent = Intent(this, Description::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        his_3.setOnClickListener {
+            val intent = Intent(this, Description::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        his_4.setOnClickListener {
+            val intent = Intent(this, Description::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        his_5.setOnClickListener {
+            val intent = Intent(this, Description::class.java)
+            startActivity(intent)
+            finish()
+        }
+
     }
 }
