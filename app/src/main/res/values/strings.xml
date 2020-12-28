@@ -17,5 +17,13 @@
     <string name="item3">Item 3</string>
     <string name="item4">Item 4</string>
     <string name="quocgia">Quốc Gia</string>
+    <string name="favorite_text">PHIM YÊU THÍCH</string>
+    <string name="film_name">Name of the film</string>
+    <string name="history_text">Lịch sử phim</string>
+    <string name="his_film_name">Name of history film</string>
+    <string name="date">23/12</string>
+    <string name="search_text">KẾT QUẢ TÌM KIẾM</string>
+    <string name="rating_point"> 8.6  </string>
+
 
 </resources>

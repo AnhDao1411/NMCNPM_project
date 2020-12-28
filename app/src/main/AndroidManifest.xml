@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GhienPhim">
-        <activity android:name=".HomeScreen"></activity>
+        <activity android:name=".Error"></activity>
+        <activity android:name=".Description" />
+        <activity android:name=".change_password" />
+        <activity android:name=".search" />
+        <activity android:name=".history" />
+        <activity android:name=".Favorite" />
+        <activity android:name=".HomeScreen" />
         <activity
             android:name=".Register"
             android:screenOrientation="portrait"

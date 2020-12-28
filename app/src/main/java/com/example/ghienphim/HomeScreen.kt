@@ -24,11 +24,19 @@ class HomeScreen : AppCompatActivity() {
             popup.show()
         }
 
+
+        btn_quocgia.setOnClickListener {
+            val intent = Intent(this, Favorite::class.java)
+            startActivity(intent)
+            finish()
+        }
         return_btn.setOnClickListener{
             val intent= Intent(this, Option::class.java)
             startActivity(intent)
             finish()
         }
+
+
     }
 }
 

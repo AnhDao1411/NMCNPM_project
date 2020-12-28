@@ -21,5 +21,7 @@ class Register : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+
     }
 }
