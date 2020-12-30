@@ -55,5 +55,42 @@ class history : AppCompatActivity() {
             finish()
         }
 
+
+        his_name1.setOnClickListener {
+            val intent = Intent(this, Description::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        his_name2.setOnClickListener {
+            val intent = Intent(this, Description::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        his_name3.setOnClickListener {
+            val intent = Intent(this, Description::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        his_name4.setOnClickListener {
+            val intent = Intent(this, Description::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        his_name5.setOnClickListener {
+            val intent = Intent(this, Description::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        return_btn3.setOnClickListener {
+            val intent = Intent(this, userprofile::class.java)
+            startActivity(intent)
+            finish()
+        }
+
     }
 }

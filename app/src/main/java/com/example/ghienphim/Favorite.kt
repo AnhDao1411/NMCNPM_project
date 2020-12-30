@@ -3,6 +3,7 @@ package com.example.ghienphim
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.activity_description.*
 import kotlinx.android.synthetic.main.activity_favorite.*
 
 class Favorite : AppCompatActivity() {
@@ -12,7 +13,11 @@ class Favorite : AppCompatActivity() {
 
 
         // link to profile by return_btn2
-
+        return_btn2.setOnClickListener{
+            val intent= Intent(this, userprofile::class.java)
+            startActivity(intent)
+            finish()
+        }
         //link to homescreen
         home_fav.setOnClickListener{
             val intent = Intent(this, HomeScreen::class.java)

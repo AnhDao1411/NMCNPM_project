@@ -17,7 +17,13 @@ class Option : AppCompatActivity() {
 
         // press an danh to go HomeScreen
         btn_andanh.setOnClickListener{
-            val intent=Intent(this, HomeScreen::class.java)
+            val intent=Intent(this, main_an::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        btn_dangnhap.setOnClickListener{
+            val intent=Intent(this, log_in::class.java)
             startActivity(intent)
             finish()
         }

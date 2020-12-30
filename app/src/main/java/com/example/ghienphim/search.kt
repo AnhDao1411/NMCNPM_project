@@ -19,25 +19,25 @@ class search : AppCompatActivity() {
         }
 
         search_1.setOnClickListener {
-            val intent = Intent(this, HomeScreen::class.java)
+            val intent = Intent(this, Description::class.java)
             startActivity(intent)
             finish()
         }
 
         search_2.setOnClickListener {
-            val intent = Intent(this, HomeScreen::class.java)
+            val intent = Intent(this, Description::class.java)
             startActivity(intent)
             finish()
         }
 
         search_3.setOnClickListener {
-            val intent = Intent(this, HomeScreen::class.java)
+            val intent = Intent(this, Description::class.java)
             startActivity(intent)
             finish()
         }
 
         search_4.setOnClickListener {
-            val intent = Intent(this, HomeScreen::class.java)
+            val intent = Intent(this, Description::class.java)
             startActivity(intent)
             finish()
         }

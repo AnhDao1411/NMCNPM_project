@@ -19,6 +19,12 @@ class Description : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        btn_cmt.setOnClickListener {
+            val intent = Intent(this, ChatBox::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
 

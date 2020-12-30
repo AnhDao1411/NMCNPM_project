@@ -2,6 +2,7 @@
     <string name="app_name">GhienPhim</string>
     <string name="Logo_img">Logo image</string>
     <string name="dangnhap">ĐĂNG NHẬP</string>
+    <string name="dangxuat">ĐĂNG XUẤT</string>
     <string name="dangky">ĐĂNG KÝ</string>
     <string name="andanh">ẨN DANH</string>
     <string name="copyright">Fairytail@2020</string>
@@ -25,5 +26,40 @@
     <string name="search_text">KẾT QUẢ TÌM KIẾM</string>
     <string name="rating_point"> 8.6  </string>
 
+    //
+    <string name="LogIn_Img">LogIn_Img</string>
+    <string name="btn_QG">Quốc Gia</string>
+    <string name="btn_TL">Thể Loại</string>
+    <string name="btn_N">Năm</string>
+    <string name="btn_moreOp">...</string>
+
+    <string name="qg_My">Mỹ</string>
+    <string name="qg_Nga">Nga</string>
+    <string name="qg_Nhat">Nhật</string>
+    <string name="qg_Phap">Pháp</string>
+    <string name="qg_Han">Hàn Quốc</string>
+    <string name="qg_Trung">Trung Quốc</string>
+    <string name="qg_Viet">Việt Nam</string>
+    <string name="qg_Thai">Thái Lan</string>
+    <string name="qg_Anh">Anh Quốc</string>
+    <string name="qg_Philip">Philipines</string>
+    <string name="nam_1980">1980</string>
+    <string name="nam_1981">1981</string>
+    <string name="nam_1982">1982</string>
+    <string name="nam_1983">1983</string>
+    <string name="nam_1984">1984</string>
+
+    <string name="favfilm">Phim Yêu Thích</string>
+    <string name="his">Lịch Sử</string>
+    <string name="changpas">Đổi Mật Khẩu</string>
+    <string name="comment">Viết Bình Luận</string>
+    <string name="num_com">Bình Luận @addvariable???</string>
+    <string name="user_img">user_img</string>
+    <string name="profile_name">profile_name</string>
+    <string name="confirm_pass">Xác nhận mật khẩu:</string>
+    <string name="new_pass">Mật khẩu mới:</string>
+    <string name="cur_pass">Mật khẩu hiện tại:</string>
+    <string name="confirm">XÁC NHẬN</string>
+    <string name="logo">logo</string>
 
 </resources>

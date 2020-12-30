@@ -12,7 +12,18 @@ class change_password : AppCompatActivity() {
 
 
         // link to Profile by btn_xacnhan
-        // link to Profile by back
+        btn_xacnhan.setOnClickListener {
+            val intent = Intent(this, userprofile::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        return_btn6.setOnClickListener {
+            val intent = Intent(this, userprofile::class.java)
+            startActivity(intent)
+            finish()
+        }
+
 
     }
 }
