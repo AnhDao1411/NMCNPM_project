@@ -13,10 +13,16 @@
     <string name="xacnhanmatkhau">Xác nhận mật khẩu</string>
     <string name="tuoi">Tuổi</string>
     <string name="TheLoai">Thể loại</string>
-    <string name="item1">Item 1</string>
-    <string name="item2">Item 2</string>
-    <string name="item3">Item 3</string>
-    <string name="item4">Item 4</string>
+    <string name="item1">Hành Động</string>
+    <string name="item2">Lãng Mạn</string>
+    <string name="item3">Kinh Dị</string>
+    <string name="item4">Khoa Học Viễn Tưởng</string>
+    <string name="item5">Hài Hước</string>
+    <string name="item6">Phiêu Lưu</string>
+    <string name="item7">Hoạt Hình</string>
+    <string name="item8">Chiến Tranh</string>
+    <string name="item9">Cổ Trang</string>
+
     <string name="quocgia">Quốc Gia</string>
     <string name="favorite_text">PHIM YÊU THÍCH</string>
     <string name="film_name">Name of the film</string>
@@ -26,7 +32,7 @@
     <string name="search_text">KẾT QUẢ TÌM KIẾM</string>
     <string name="rating_point"> 8.6  </string>
 
-    //
+    //Homescreen
     <string name="LogIn_Img">LogIn_Img</string>
     <string name="btn_QG">Quốc Gia</string>
     <string name="btn_TL">Thể Loại</string>
@@ -49,6 +55,8 @@
     <string name="nam_1983">1983</string>
     <string name="nam_1984">1984</string>
 
+
+    //profile screen
     <string name="favfilm">Phim Yêu Thích</string>
     <string name="his">Lịch Sử</string>
     <string name="changpas">Đổi Mật Khẩu</string>
@@ -61,5 +69,20 @@
     <string name="cur_pass">Mật khẩu hiện tại:</string>
     <string name="confirm">XÁC NHẬN</string>
     <string name="logo">logo</string>
+
+    //error label for login
+    <string name="noti">THÔNG BÁO</string>
+    <string name="noti_info">Tên đăng nhập hoặc mật khẩu không đúng.\n Bạn vui lòng nhập lại.</string>
+
+    //history screen
+    <string name="his_name1">Nhà tù Shawshank</string>
+    <string name="his_name2">12 Angry Men</string>
+    <string name="his_name3">Vùng Đất Linh Hồn</string>
+    <string name="his_name4">Bố già</string>
+    <string name="date1">1/2</string>
+    <string name="date2">1/2</string>
+    <string name="date3">1/2</string>
+    <string name="date4">1/2</string>
+    <string name="date5">1/2</string>
 
 </resources>

@@ -53,7 +53,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_weight="0"
-                    android:contentDescription="@string/film_name"
+                    android:contentDescription="@string/his_name1"
                     app:srcCompat="@drawable/demo_film" />
 
                 <TextView
@@ -68,7 +68,7 @@
                     android:paddingEnd="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="10dp"
-                    android:text="@string/film_name"
+                    android:text="@string/his_name1"
                     android:textSize="18sp"
                     app:autoSizeTextType="uniform" />
 
@@ -108,8 +108,8 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_weight="0"
-                    android:contentDescription="@string/film_name"
-                    app:srcCompat="@drawable/demo_film" />
+                    android:contentDescription="@string/his_name2"
+                    app:srcCompat="@drawable/demo_film2" />
 
                 <TextView
                     android:id="@+id/search_name2"
@@ -123,7 +123,7 @@
                     android:paddingEnd="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="10dp"
-                    android:text="@string/film_name"
+                    android:text="@string/his_name2"
                     android:textSize="18sp"
                     app:autoSizeTextType="uniform" />
 
@@ -164,8 +164,8 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_weight="0"
-                    android:contentDescription="@string/film_name"
-                    app:srcCompat="@drawable/demo_film" />
+                    android:contentDescription="@string/his_name3"
+                    app:srcCompat="@drawable/demo_film3" />
 
                 <TextView
                     android:id="@+id/search_name3"
@@ -179,7 +179,7 @@
                     android:paddingEnd="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="10dp"
-                    android:text="@string/film_name"
+                    android:text="@string/his_name3"
                     android:textSize="18sp"
                     app:autoSizeTextType="uniform" />
 
@@ -220,8 +220,8 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_weight="0"
-                    android:contentDescription="@string/film_name"
-                    app:srcCompat="@drawable/demo_film" />
+                    android:contentDescription="@string/his_name4"
+                    app:srcCompat="@drawable/demo_film4" />
 
                 <TextView
                     android:id="@+id/search_name4"
@@ -236,7 +236,7 @@
                     android:paddingEnd="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="10dp"
-                    android:text="@string/film_name"
+                    android:text="@string/his_name4"
                     android:textSize="18sp"
                     app:autoSizeTextType="uniform" />
 
@@ -252,6 +252,120 @@
 
                 <ImageView
                     android:id="@+id/imageView4"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:paddingStart="1dp"
+                    android:paddingEnd="20dp"
+                    app:srcCompat="@drawable/star" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/search_5"
+                android:layout_width="415dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:id="@+id/search_img5"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/his_name1"
+                    app:srcCompat="@drawable/demo_film" />
+
+                <TextView
+                    android:id="@+id/search_name5"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_weight="0"
+
+                    android:paddingStart="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/his_name1"
+                    android:textSize="18sp"
+                    app:autoSizeTextType="uniform" />
+
+                <TextView
+                    android:id="@+id/rate_5"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_weight="0"
+                    android:text="@string/rating_point"
+                    android:textAlignment="viewEnd"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:paddingStart="1dp"
+                    android:paddingEnd="20dp"
+                    app:srcCompat="@drawable/star" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/search_6"
+                android:layout_width="415dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:id="@+id/search_img6"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/his_name2"
+                    app:srcCompat="@drawable/demo_film2" />
+
+                <TextView
+                    android:id="@+id/search_name6"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_weight="0"
+
+                    android:paddingStart="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/his_name2"
+                    android:textSize="18sp"
+                    app:autoSizeTextType="uniform" />
+
+                <TextView
+                    android:id="@+id/rate_6"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_weight="0"
+                    android:text="@string/rating_point"
+                    android:textAlignment="viewEnd"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/imageView6"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginTop="40dp"

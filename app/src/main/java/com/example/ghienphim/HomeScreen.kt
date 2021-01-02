@@ -35,7 +35,7 @@ class HomeScreen : AppCompatActivity() {
 
         btn_nam.setOnClickListener{
             val popup=PopupMenu(this,btn_nam)
-            popup.inflate(R.menu.show_quoc_gia)
+            popup.inflate(R.menu.show_nam)
             popup.setOnMenuItemClickListener{
                 Toast.makeText(this, "Item : "+it.title, Toast.LENGTH_SHORT).show()
                 true
@@ -54,6 +54,75 @@ class HomeScreen : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+
+        home_film1.setOnClickListener{
+            val intent= Intent(this, Description::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        home_film2.setOnClickListener{
+            val intent= Intent(this, description_12::class.java)
+            startActivity(intent)
+            finish()
+        }
+        home_film3.setOnClickListener{
+            val intent= Intent(this, description_vd::class.java)
+            startActivity(intent)
+            finish()
+        }
+        home_film4.setOnClickListener{
+            val intent= Intent(this, Description2::class.java)
+            startActivity(intent)
+            finish()
+        }
+        home_film5.setOnClickListener{
+            val intent= Intent(this, description_12::class.java)
+            startActivity(intent)
+            finish()
+        }
+        home_film6.setOnClickListener{
+            val intent= Intent(this, description_vd::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+
+        home_film7.setOnClickListener{
+            val intent= Intent(this, Description2::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        home_film8.setOnClickListener{
+            val intent= Intent(this, description_vd::class.java)
+            startActivity(intent)
+            finish()
+        }
+        home_film9.setOnClickListener{
+            val intent= Intent(this, description_12::class.java)
+            startActivity(intent)
+            finish()
+        }
+        home_film10.setOnClickListener{
+            val intent= Intent(this, Description::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        home_film11.setOnClickListener{
+            val intent= Intent(this, description_vd::class.java)
+            startActivity(intent)
+            finish()
+        }
+        home_film12.setOnClickListener{
+            val intent= Intent(this, description_12::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+
     }
 }
 

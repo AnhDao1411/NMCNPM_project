@@ -65,8 +65,8 @@
                 android:layout_width="415dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="0dp"
-                android:orientation="horizontal"
                 android:clickable="true"
+                android:orientation="horizontal"
                 android:visibility="visible">
 
                 <ImageView
@@ -87,7 +87,7 @@
                     android:layout_marginTop="25dp"
                     android:layout_weight="0"
                     android:clickable="true"
-                    android:contentDescription="@string/film_name"
+                    android:contentDescription="@string/his_name1"
                     android:focusable="true"
                     android:paddingStart="10dp"
                     android:paddingLeft="10dp"
@@ -95,7 +95,7 @@
                     android:paddingEnd="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="10dp"
-                    android:text="@string/film_name"
+                    android:text="@string/his_name1"
                     android:textSize="18sp"
                     app:autoSizeTextType="uniform" />
 
@@ -125,11 +125,11 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_weight="0"
-                    android:contentDescription="@string/film_name"
+                    android:contentDescription="@string/his_name2"
                     android:paddingStart="17dp"
                     android:paddingTop="0dp"
                     android:paddingEnd="0dp"
-                    app:srcCompat="@drawable/demo_film" />
+                    app:srcCompat="@drawable/demo_film2" />
 
                 <TextView
                     android:id="@+id/fav_name2"
@@ -138,7 +138,7 @@
                     android:layout_marginTop="25dp"
                     android:layout_weight="0"
                     android:clickable="true"
-                    android:contentDescription="@string/film_name"
+                    android:contentDescription="@string/his_name2"
                     android:focusable="true"
                     android:paddingStart="10dp"
                     android:paddingLeft="10dp"
@@ -146,7 +146,7 @@
                     android:paddingEnd="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="10dp"
-                    android:text="@string/film_name"
+                    android:text="@string/his_name2"
                     android:textSize="18sp"
                     app:autoSizeTextType="uniform" />
 
@@ -177,7 +177,7 @@
                     android:paddingStart="17dp"
                     android:paddingTop="0dp"
                     android:paddingEnd="0dp"
-                    app:srcCompat="@drawable/demo_film" />
+                    app:srcCompat="@drawable/demo_film3" />
 
                 <TextView
                     android:id="@+id/fav_name3"
@@ -186,7 +186,7 @@
                     android:layout_marginTop="25dp"
                     android:layout_weight="0"
                     android:clickable="true"
-                    android:contentDescription="@string/film_name"
+                    android:contentDescription="@string/his_name3"
                     android:focusable="true"
                     android:paddingStart="10dp"
                     android:paddingLeft="10dp"
@@ -194,7 +194,7 @@
                     android:paddingEnd="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="10dp"
-                    android:text="@string/film_name"
+                    android:text="@string/his_name3"
                     android:textSize="18sp"
                     app:autoSizeTextType="uniform" />
 
@@ -225,7 +225,7 @@
                     android:paddingStart="17dp"
                     android:paddingTop="0dp"
                     android:paddingEnd="0dp"
-                    app:srcCompat="@drawable/demo_film" />
+                    app:srcCompat="@drawable/demo_film4" />
 
                 <TextView
                     android:id="@+id/fav_name4"
@@ -234,7 +234,7 @@
                     android:layout_marginTop="25dp"
                     android:layout_weight="0"
                     android:clickable="true"
-                    android:contentDescription="@string/film_name"
+                    android:contentDescription="@string/his_name4"
                     android:focusable="true"
                     android:paddingStart="10dp"
                     android:paddingLeft="10dp"
@@ -242,7 +242,7 @@
                     android:paddingEnd="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="10dp"
-                    android:text="@string/film_name"
+                    android:text="@string/his_name4"
                     android:textSize="18sp"
                     app:autoSizeTextType="uniform" />
 
@@ -283,7 +283,7 @@
                     android:layout_marginTop="25dp"
                     android:layout_weight="0"
                     android:clickable="true"
-                    android:contentDescription="@string/film_name"
+                    android:contentDescription="@string/his_name1"
                     android:focusable="true"
                     android:paddingStart="10dp"
                     android:paddingLeft="10dp"
@@ -291,7 +291,7 @@
                     android:paddingEnd="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="10dp"
-                    android:text="@string/film_name"
+                    android:text="@string/his_name1"
                     android:textSize="18sp"
                     app:autoSizeTextType="uniform" />
 
@@ -322,7 +322,7 @@
                     android:paddingStart="17dp"
                     android:paddingTop="0dp"
                     android:paddingEnd="0dp"
-                    app:srcCompat="@drawable/demo_film" />
+                    app:srcCompat="@drawable/demo_film2" />
 
                 <TextView
                     android:id="@+id/fav_name6"
@@ -331,7 +331,7 @@
                     android:layout_marginTop="25dp"
                     android:layout_weight="0"
                     android:clickable="true"
-                    android:contentDescription="@string/film_name"
+                    android:contentDescription="@string/his_name2"
                     android:focusable="true"
                     android:paddingStart="10dp"
                     android:paddingLeft="10dp"
@@ -339,7 +339,7 @@
                     android:paddingEnd="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="10dp"
-                    android:text="@string/film_name"
+                    android:text="@string/his_name2"
                     android:textSize="18sp"
                     app:autoSizeTextType="uniform" />
 

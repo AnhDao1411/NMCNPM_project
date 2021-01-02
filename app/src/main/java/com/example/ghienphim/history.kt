@@ -32,19 +32,19 @@ class history : AppCompatActivity() {
         }
 
         his_2.setOnClickListener {
-            val intent = Intent(this, Description::class.java)
+            val intent = Intent(this, description_12::class.java)
             startActivity(intent)
             finish()
         }
 
         his_3.setOnClickListener {
-            val intent = Intent(this, Description::class.java)
+            val intent = Intent(this, description_vd::class.java)
             startActivity(intent)
             finish()
         }
 
         his_4.setOnClickListener {
-            val intent = Intent(this, Description::class.java)
+            val intent = Intent(this, Description2::class.java)
             startActivity(intent)
             finish()
         }
@@ -63,19 +63,19 @@ class history : AppCompatActivity() {
         }
 
         his_name2.setOnClickListener {
-            val intent = Intent(this, Description::class.java)
+            val intent = Intent(this, description_12::class.java)
             startActivity(intent)
             finish()
         }
 
         his_name3.setOnClickListener {
-            val intent = Intent(this, Description::class.java)
+            val intent = Intent(this, description_vd::class.java)
             startActivity(intent)
             finish()
         }
 
         his_name4.setOnClickListener {
-            val intent = Intent(this, Description::class.java)
+            val intent = Intent(this, Description2::class.java)
             startActivity(intent)
             finish()
         }

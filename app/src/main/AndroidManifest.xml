@@ -9,8 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GhienPhim">
-        <activity android:name=".pro_an"></activity>
-        <activity android:name=".main_an" />
+        <activity android:name=".main_an"></activity>
+        <activity android:name=".description_vd" />
+        <activity android:name=".description_12" />
+        <activity android:name=".Description2" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".pro_an" />
         <activity android:name=".userprofile" />
         <activity android:name=".profile" />
         <activity android:name=".ChatBox" />

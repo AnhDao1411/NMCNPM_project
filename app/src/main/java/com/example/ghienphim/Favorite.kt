@@ -3,7 +3,7 @@ package com.example.ghienphim
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_description.*
+
 import kotlinx.android.synthetic.main.activity_favorite.*
 
 class Favorite : AppCompatActivity() {
@@ -33,19 +33,19 @@ class Favorite : AppCompatActivity() {
         }
 
         fav_2.setOnClickListener {
-            val intent = Intent(this, Description::class.java)
+            val intent = Intent(this, description_12::class.java)
             startActivity(intent)
             finish()
         }
 
         fav_3.setOnClickListener {
-            val intent = Intent(this, Description::class.java)
+            val intent = Intent(this, description_vd::class.java)
             startActivity(intent)
             finish()
         }
 
         fav_4.setOnClickListener {
-            val intent = Intent(this, Description::class.java)
+            val intent = Intent(this, Description2::class.java)
             startActivity(intent)
             finish()
         }
@@ -57,7 +57,7 @@ class Favorite : AppCompatActivity() {
         }
 
         fav_6.setOnClickListener {
-            val intent = Intent(this, Description::class.java)
+            val intent = Intent(this, description_12::class.java)
             startActivity(intent)
             finish()
         }
