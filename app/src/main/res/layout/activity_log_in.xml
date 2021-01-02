@@ -20,13 +20,22 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
+        android:id="@+id/return_btn_dn"
+        android:layout_width="51dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/return_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
         android:id="@+id/btn_dn"
         style="@style/btn_normal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="143dp"
         android:layout_marginTop="48dp"
-        android:layout_marginEnd="144dp"
         android:layout_marginBottom="52dp"
         android:background="@drawable/round_button_green"
         android:bottomLeftRadius="10dp"
@@ -38,12 +47,11 @@
         android:topRightRadius="10dp"
         app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_matkhau" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_matkhau_dn" />
 
     <EditText
-        android:id="@+id/edit_matkhau"
+        android:id="@+id/edit_matkhau_dn"
         style="@style/edit_text"
         android:layout_width="243dp"
         android:layout_height="50dp"
@@ -51,9 +59,10 @@
         android:layout_marginTop="18dp"
         android:layout_marginEnd="71dp"
         android:importantForAutofill="no"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_matkhau"
+        app:layout_constraintTop_toBottomOf="@+id/text_matkhau_dn"
         tools:ignore="LabelFor" />
 
     <EditText
@@ -66,7 +75,7 @@
         android:layout_marginEnd="71dp"
         android:layout_marginBottom="19dp"
         android:importantForAutofill="no"
-        app:layout_constraintBottom_toTopOf="@+id/text_matkhau"
+        app:layout_constraintBottom_toTopOf="@+id/text_matkhau_dn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_dangnhap"
@@ -98,7 +107,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
-        android:id="@+id/text_matkhau"
+        android:id="@+id/text_matkhau_dn"
         style="@style/register_text"
         android:layout_width="wrap_content"
         android:layout_height="0dp"

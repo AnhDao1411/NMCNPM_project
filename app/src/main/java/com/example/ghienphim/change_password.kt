@@ -18,7 +18,7 @@ class change_password : AppCompatActivity() {
             finish()
         }
 
-        return_btn6.setOnClickListener {
+        return_changeP.setOnClickListener {
             val intent = Intent(this, userprofile::class.java)
             startActivity(intent)
             finish()

@@ -72,6 +72,10 @@
 
     //error label for login
     <string name="noti">THÔNG BÁO</string>
+    <string name="blankF">Bạn chưa điền đủ thông tin!</string>
+    <string name="wrongP">Mật khẩu không đủ yêu cầu \n (từ 8 - 20 ký tự)</string>
+    <string name="wrongA">Tuổi không hợp lệ (0 - 100)</string>
+    <string name="invalidE">Email không hợp lệ!</string>
     <string name="noti_info">Tên đăng nhập hoặc mật khẩu không đúng.\n Bạn vui lòng nhập lại.</string>
 
     //history screen
