@@ -79,7 +79,7 @@
                 android:layout_marginTop="16dp"
                 android:backgroundTint="#FFEB3B"
                 android:backgroundTintMode="src_in"
-                android:hapticFeedbackEnabled="true"
+                android:isIndicator="false"
                 android:theme="@style/RatingBar" />
 
             <LinearLayout

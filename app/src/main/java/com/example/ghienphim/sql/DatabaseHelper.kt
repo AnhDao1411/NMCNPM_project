@@ -5,15 +5,16 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.example.ghienphim.model.User
+import android.widget.Toast
 import java.util.*
 import kotlin.collections.List
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     // create table sql query
-    private val createusertable = ("CREATE TABLE " + TABLE_USER + "("
+    private val createusertable = ("CREATE TABLE " + TABLE_USER + " ("
             + COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_USER_NAME + " TEXT,"
-            + COLUMN_USER_EMAIL + " TEXT," + COLUMN_USER_PASSWORD + " TEXT" + COLUMN_USER_AGE + " INTEGER" + ")")
+            + COLUMN_USER_EMAIL + " TEXT," + COLUMN_USER_PASSWORD + " TEXT," + COLUMN_USER_AGE + " INTEGER)")
 
     // drop table sql query
     private val dropusertable = "DROP TABLE IF EXISTS $TABLE_USER"
@@ -64,7 +65,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                     name = cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME)),
                     email = cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL)),
                     pass = cursor.getString(cursor.getColumnIndex(COLUMN_USER_PASSWORD)),
-                    age = cursor.getInt(cursor.getColumnIndex(COLUMN_USER_AGE)).toInt())
+                    age = cursor.getString(cursor.getColumnIndex(COLUMN_USER_AGE)).toInt())
 
                 userList.add(user)
             } while (cursor.moveToNext())
@@ -82,8 +83,18 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
      */
     fun addUser(user: User) {
         val db = this.writableDatabase
-
+//
+//        val listU = db.query(TABLE_USER, //Table to query
+//         arrayOf(COLUMN_USER_ID),        //columns to return
+//        null,      //columns for the WHERE clause
+//        null,  //The values for the WHERE clause
+//        null,  //group the rows
+//        null,   //filter by row groups
+//        null)  //The sort order
+//        val numU = listU.count()
         val values = ContentValues()
+//        user.id = values
+//        values.put(COLUMN_USER_ID, user.id)
         values.put(COLUMN_USER_NAME, user.name)
         values.put(COLUMN_USER_EMAIL, user.email)
         values.put(COLUMN_USER_PASSWORD, user.pass)
@@ -216,9 +227,43 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
         if (cursorCount > 0)
             return true
-
         return false
+    }
+    fun checkWPassUser(username: String): Boolean {
 
+        // array of columns to fetch
+        val columns = arrayOf(COLUMN_USER_ID)
+
+        val db = this.readableDatabase
+
+        // selection criteria
+        val selection = "$COLUMN_USER_NAME = ?"
+
+        // selection arguments
+        val selectionArgs = arrayOf(username)
+
+        // query user table with conditions
+        /**
+         * Here query function is used to fetch records from user table this function works like we use sql query.
+         * SQL query equivalent to this query function is
+         * SELECT user_id FROM user WHERE user_email = 'jack@androidtutorialshub.com' AND user_password = 'qwerty';
+         */
+        val cursor = db.query(
+                TABLE_USER, //Table to query
+                columns, //columns to return
+                selection, //columns for the WHERE clause
+                selectionArgs, //The values for the WHERE clause
+                null,  //group the rows
+                null, //filter by row groups
+                null) //The sort order
+
+        val cursorCount = cursor.count
+        cursor.close()
+        db.close()
+
+        if (cursorCount > 0)
+            return true
+        return false
     }
 
     companion object {
@@ -236,7 +281,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         private val COLUMN_USER_ID = "user_id"
         private val COLUMN_USER_NAME = "user_name"
         private val COLUMN_USER_EMAIL = "user_email"
-        private val COLUMN_USER_PASSWORD = "user_password"
         private val COLUMN_USER_AGE = "user_age"
+        private val COLUMN_USER_PASSWORD = "user_password"
     }
 }

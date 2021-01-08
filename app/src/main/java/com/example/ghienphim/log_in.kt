@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.app.AlertDialog
+import android.content.Context
 import android.content.DialogInterface
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatTextView
@@ -33,6 +34,7 @@ class log_in : AppCompatActivity() {
         textInputEditUsername = edit_tendangnhap
         textInputEditPass = edit_matkhau_dn
 
+        initObjects()
         return_btn_dn.setOnClickListener{
             val intent= Intent(this, Option::class.java)
             startActivity(intent)
@@ -55,18 +57,52 @@ class log_in : AppCompatActivity() {
                 }
                 else
                 {
-                    val intent = Intent(this, HomeScreen::class.java)
-                    startActivity(intent)
-                    finish()
+                    verifyFromData(this)
+//                    val intent = Intent(this, HomeScreen::class.java)
+//                    startActivity(intent)
+//                    finish()
                 }
             }
         }
     }
-    private fun validInput(view: View):Boolean
-    {
+    private fun verifyFromData(context: Context){
+        if(databaseHelper!!.checkUser(username = textInputEditUsername.text.toString(), password = textInputEditPass.text.toString())){
+            val intent = Intent(context, HomeScreen::class.java)
+            startActivity(intent)
+            finish()
+        }
+        else if(databaseHelper!!.checkWPassUser(username = textInputEditUsername.text.toString())){
+            val labelErr = AlertDialog.Builder(context)
+            labelErr.setTitle(R.string.noti)
+            labelErr.setMessage(R.string.wrong_acc)
+            labelErr.setIcon(R.drawable.alert_img)
+
+            labelErr.setNegativeButton("Huỷ", DialogInterface.OnClickListener() { dialog, id -> dialog.cancel() })
+            val alertDialog: AlertDialog = labelErr.create()
+            alertDialog.show()
+        }
+        else {
+            val labelErr = AlertDialog.Builder(context)
+            labelErr.setTitle(R.string.noti)
+            labelErr.setMessage(R.string.unavai_acc)
+            labelErr.setIcon(R.drawable.alert_img)
+
+            labelErr.setNegativeButton("Huỷ", DialogInterface.OnClickListener() {
+                dialog, id -> dialog.cancel()
+                val intent = Intent(context, Option::class.java)
+                startActivity(intent)
+                finish()})
+            val alertDialog: AlertDialog = labelErr.create()
+            alertDialog.show()
+        }
+    }
+    private fun validInput(view: View):Boolean{
         //check Password's length is in range 8 - 20 letter
         if(textInputEditPass.text.length !in 8..20)
            return false
         return true
+    }
+    private fun initObjects(){
+        databaseHelper = DatabaseHelper(activity)
     }
 }

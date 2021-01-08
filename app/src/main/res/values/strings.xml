@@ -70,13 +70,17 @@
     <string name="confirm">XÁC NHẬN</string>
     <string name="logo">logo</string>
 
-    //error label for login
+    //error label for logind
     <string name="noti">THÔNG BÁO</string>
     <string name="blankF">Bạn chưa điền đủ thông tin!</string>
     <string name="wrongP">Mật khẩu không đủ yêu cầu \n (từ 8 - 20 ký tự)</string>
     <string name="wrongA">Tuổi không hợp lệ (0 - 100)</string>
     <string name="invalidE">Email không hợp lệ!</string>
+    <string name="conDifPas">Mật khẩu xác nhận không khớp!</string>
     <string name="noti_info">Tên đăng nhập hoặc mật khẩu không đúng.\n Bạn vui lòng nhập lại.</string>
+    <string name="exist_acc">Tài khoản đã tồn tại.\n Vui lòng nhập username hoặc email khác!!!</string>
+    <string name="wrong_acc">Mật khẩu không đúng.\n Vui lòng nhập lại!!!</string>
+    <string name="unavai_acc">Tài khoản không hợp lệ.\n Vui lòng nhập tài khoản khác hoặc đăng ký một tài khoản mới!!!</string>
 
     //history screen
     <string name="his_name1">Nhà tù Shawshank</string>
@@ -88,5 +92,6 @@
     <string name="date3">1/2</string>
     <string name="date4">1/2</string>
     <string name="date5">1/2</string>
+    <string name="pass_cond">Mật khẩu từ 8 - 20 ký tự</string>
 
 </resources>
