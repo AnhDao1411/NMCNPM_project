@@ -88,5 +88,6 @@
     <string name="date3">1/2</string>
     <string name="date4">1/2</string>
     <string name="date5">1/2</string>
+    <string name="cond_pass">Mật khẩu từ 8 - 20 kí tự</string>
 
 </resources>
