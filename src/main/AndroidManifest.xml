@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.ghienphim">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.GhienPhim">
+        <activity android:name=".main_an"></activity>
+        <activity android:name=".description_vd" />
+        <activity android:name=".description_12" />
+        <activity android:name=".Description2" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".pro_an" />
+        <activity android:name=".userprofile" />
+        <activity android:name=".profile" />
+        <activity android:name=".ChatBox" />
+        <activity android:name=".log_in" />
+        <activity android:name=".Error" />
+        <activity android:name=".Description" />
+        <activity android:name=".change_password" />
+        <activity android:name=".search" />
+        <activity android:name=".history" />
+        <activity android:name=".Favorite" />
+        <activity android:name=".HomeScreen" />
+        <activity
+            android:name=".Register"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBarTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".Option"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBarTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
