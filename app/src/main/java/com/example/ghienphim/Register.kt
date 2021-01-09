@@ -11,11 +11,21 @@ import android.content.DialogInterface
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.appcompat.widget.AppCompatButton
-
+import android.util.Log
 import com.example.ghienphim.R
 import com.example.ghienphim.sql.DatabaseHelper
 import com.example.ghienphim.model.User
+import com.example.ghienphim.model.Post
+
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_register.*
+import com.example.ghienphim.databinding.ActivityRegisterBinding
+import androidx.databinding.DataBindingUtil
+
+
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
 
 class Register : AppCompatActivity() {
 
@@ -29,25 +39,29 @@ class Register : AppCompatActivity() {
 
     private lateinit var appCompatButtonRegister: AppCompatButton
     private lateinit var databaseHelper: DatabaseHelper
+    private lateinit var database: DatabaseReference
+    private lateinit var binding: ActivityRegisterBinding
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
 
-        textInputEditAge = edit_tuoi
-        textInputEditConPass = edit_xacnhanmatkhau
-        textInputEditPass = edit_matkhau
-        textInputEditEmail = edit_email
-        textInputEditUsername = edit_tendangnhap
+        textInputEditAge = binding.editTuoi
+        textInputEditConPass = binding.editXacnhanmatkhau
+        textInputEditPass = binding.editMatkhau
+        textInputEditEmail = binding.editEmail
+        textInputEditUsername = binding.editTendangnhap
 
         initObjects()
-        return_btn.setOnClickListener{
+        binding.returnBtn.setOnClickListener{
             val intent= Intent(this, Option::class.java)
             startActivity(intent)
             finish()
         }
 
-        btn_dangky.setOnClickListener {
+        binding.btnDangky.setOnClickListener {
             if (textInputEditEmail.text.isBlank() || textInputEditUsername.text.isBlank()
                     || textInputEditPass.text.isBlank() || textInputEditConPass.text.isBlank()
                     || textInputEditAge.text.isBlank()) {
@@ -82,14 +96,40 @@ class Register : AppCompatActivity() {
             opt = 0
         return opt
     }
+
+//    private fun writeNewUser(user: User) {
+//        val user = User(name = textInputEditUsername.text.toString(), pass = textInputEditPass.text.toString(),
+//            age = textInputEditAge.text.toString().toInt(), email = textInputEditEmail.text.toString())
+//        database.child("users").child(user.id.toString()).setValue(user)
+//
+//    }
+
+    private fun writeNewPost(userId: String, username: String, email: String, password: MutableMap<String, Boolean>, age: String) {
+        // Create new post at /user-posts/$userid/$postid and at
+        // /posts/$postid simultaneously
+        val key = database.child("user").push().key
+        val post = Post(userId, username, email, password,age)
+        val postValues = post.toMap()
+
+        val childUpdates = hashMapOf<String, Any>(
+            "/user/$key" to postValues,
+            "/user-posts/$userId/$key" to postValues
+        )
+
+        //database.child("users").child(userId.toString()).setValue(user)
+        database.updateChildren(childUpdates)
+    }
+
     private fun postDatatoSQLite(context: Context,opt:Int){
         val check = action(context,opt)
         if(check != 0 && !databaseHelper!!.checkUserExist(email=textInputEditEmail.text.toString(),name=textInputEditUsername.text.toString())) {
             var user = User(name = textInputEditUsername.text.toString(), pass = textInputEditPass.text.toString(),
                     age = textInputEditAge.text.toString().toInt(), email = textInputEditEmail.text.toString())
             databaseHelper.addUser(user)
+            //writeNewPost(user.id.toString(),user.name,user.email,user.pass.hashCode(),user.age.toString())
             emptyInputEditText()
             val intent = Intent(context, HomeScreen::class.java)
+
             startActivity(intent)
             finish()
         }
