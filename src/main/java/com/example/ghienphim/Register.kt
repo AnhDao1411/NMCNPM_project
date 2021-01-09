@@ -37,7 +37,7 @@ class Register : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
 
         textInputEditAge = edit_tuoi
         textInputEditConPass = edit_xacnhanmatkhau
