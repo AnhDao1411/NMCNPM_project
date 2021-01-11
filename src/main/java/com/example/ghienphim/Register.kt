@@ -31,7 +31,7 @@ class Register : AppCompatActivity() {
 
     private lateinit var appCompatButtonRegister: AppCompatButton
     private lateinit var databaseHelper: DatabaseHelper
-
+    val database = Firebase.database
     private lateinit var binding: ActivityRegisterBinding
 
 

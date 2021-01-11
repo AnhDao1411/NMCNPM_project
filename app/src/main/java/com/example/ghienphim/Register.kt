@@ -26,6 +26,7 @@ import androidx.databinding.DataBindingUtil
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class Register : AppCompatActivity() {
 
@@ -43,11 +44,10 @@ class Register : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
-
+        database = FirebaseDatabase.getInstance().getReference("user")
         textInputEditAge = binding.editTuoi
         textInputEditConPass = binding.editXacnhanmatkhau
         textInputEditPass = binding.editMatkhau
@@ -55,6 +55,7 @@ class Register : AppCompatActivity() {
         textInputEditUsername = binding.editTendangnhap
 
         initObjects()
+
         binding.returnBtn.setOnClickListener{
             val intent= Intent(this, Option::class.java)
             startActivity(intent)
@@ -104,7 +105,7 @@ class Register : AppCompatActivity() {
 //
 //    }
 
-    private fun writeNewPost(userId: String, username: String, email: String, password: MutableMap<String, Boolean>, age: String) {
+    private fun writeNewPost(userId: String, username: String, email: String, password:String, age: String) {
         // Create new post at /user-posts/$userid/$postid and at
         // /posts/$postid simultaneously
         val key = database.child("user").push().key
@@ -123,10 +124,11 @@ class Register : AppCompatActivity() {
     private fun postDatatoSQLite(context: Context,opt:Int){
         val check = action(context,opt)
         if(check != 0 && !databaseHelper!!.checkUserExist(email=textInputEditEmail.text.toString(),name=textInputEditUsername.text.toString())) {
-            var user = User(name = textInputEditUsername.text.toString(), pass = textInputEditPass.text.toString(),
+            var user = User(id = 1,name = textInputEditUsername.text.toString(), pass = textInputEditPass.text.toString(),
                     age = textInputEditAge.text.toString().toInt(), email = textInputEditEmail.text.toString())
             databaseHelper.addUser(user)
-            //writeNewPost(user.id.toString(),user.name,user.email,user.pass.hashCode(),user.age.toString())
+            user.pass = user.pass.hashCode().toString();
+            writeNewPost(user.id.toString(),user.name,user.email,user.pass,user.age.toString())
             emptyInputEditText()
             val intent = Intent(context, HomeScreen::class.java)
 

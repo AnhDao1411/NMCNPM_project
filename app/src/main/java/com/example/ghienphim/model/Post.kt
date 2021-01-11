@@ -3,7 +3,7 @@ import com.google.firebase.database.Exclude
 import com.google.firebase.database.IgnoreExtraProperties
 import java.util.HashMap
 @IgnoreExtraProperties
-data class Post (var id: String? = "", var name: String? = "", var email: String? ="", var password: MutableMap<String, Boolean> = HashMap(), var age: String? ="")
+data class Post (var id: String? = "", var name: String? = "", var email: String? ="", var password: String?="", var age: String? ="")
 {
     @Exclude
     fun toMap(): Map<String, Any?>{
