@@ -23,7 +23,7 @@ class Option : AppCompatActivity() {
         }
 
         btn_dangnhap.setOnClickListener{
-            val intent=Intent(this, log_in::class.java)
+            val intent=Intent(this, LogIn::class.java)
             startActivity(intent)
             finish()
         }

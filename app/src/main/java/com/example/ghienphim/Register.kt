@@ -105,20 +105,21 @@ class Register : AppCompatActivity() {
 //
 //    }
 
-    private fun writeNewPost(userId: String, username: String, email: String, password:String, age: String) {
+    private fun writeNewPost( username: String, email: String, password:String, age: String) {
         // Create new post at /user-posts/$userid/$postid and at
         // /posts/$postid simultaneously
-        val key = database.child("user").push().key
-        val post = Post(userId, username, email, password,age)
+        val key = database.child("username").push().key
+
+        val post = Post( username, email, password,age)
         val postValues = post.toMap()
-
-        val childUpdates = hashMapOf<String, Any>(
-            "/user/$key" to postValues,
-            "/user-posts/$userId/$key" to postValues
-        )
-
-        //database.child("users").child(userId.toString()).setValue(user)
-        database.updateChildren(childUpdates)
+        database.child(username).setValue(postValues)
+//        val childUpdates = hashMapOf<String, Any>(
+//            "$key" to postValues,
+//            //"/user-posts/$username/$key" to postValues
+//        )
+//
+//        //database.child("users").child(userId.toString()).setValue(user)
+        //database.updateChildren(childUpdates)
     }
 
     private fun postDatatoSQLite(context: Context,opt:Int){
@@ -128,7 +129,7 @@ class Register : AppCompatActivity() {
                     age = textInputEditAge.text.toString().toInt(), email = textInputEditEmail.text.toString())
             databaseHelper.addUser(user)
             user.pass = user.pass.hashCode().toString();
-            writeNewPost(user.id.toString(),user.name,user.email,user.pass,user.age.toString())
+            writeNewPost(user.name,user.email,user.pass,user.age.toString())
             emptyInputEditText()
             val intent = Intent(context, HomeScreen::class.java)
 
