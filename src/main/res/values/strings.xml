@@ -80,6 +80,7 @@
     <string name="noti_info">Tên đăng nhập hoặc mật khẩu không đúng.\n Bạn vui lòng nhập lại.</string>
     <string name="exist_acc">Tài khoản đã tồn tại.\n Vui lòng nhập username hoặc email khác!!!</string>
     <string name="wrong_acc">Mật khẩu không đúng.\n Vui lòng nhập lại!!!</string>
+    <string name="disconnect">Vui lòng kiểm tra lại kết nối Internet!!!</string>
     <string name="unavai_acc">Tài khoản không hợp lệ.\n Vui lòng nhập tài khoản khác hoặc đăng ký một tài khoản mới!!!</string>
 
     //history screen

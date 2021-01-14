@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import android.widget.PopupMenu
+import com.example.ghienphim.model.readFireStore
 import kotlinx.android.synthetic.main.activity_home_screen.*
 import kotlinx.android.synthetic.main.activity_userprofile.*
 
@@ -49,8 +50,11 @@ class HomeScreen : AppCompatActivity() {
             finish()
         }
 
+
+        // NEW FEATURE
         search_btn.setOnClickListener{
             val intent= Intent(this, search::class.java)
+            readFireStore()
             startActivity(intent)
             finish()
         }
@@ -87,8 +91,6 @@ class HomeScreen : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-
-
         home_film7.setOnClickListener{
             val intent= Intent(this, Description2::class.java)
             startActivity(intent)
