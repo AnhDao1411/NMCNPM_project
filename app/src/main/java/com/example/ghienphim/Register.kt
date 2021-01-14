@@ -1,32 +1,27 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.ghienphim
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.view.View
-import android.widget.EditText
+
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
+import android.net.ConnectivityManager
+import android.os.Bundle
+import android.view.View
+import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.widget.AppCompatTextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import android.util.Log
-import com.example.ghienphim.R
-import com.example.ghienphim.sql.DatabaseHelper
-import com.example.ghienphim.model.User
-import com.example.ghienphim.model.Post
-
-import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_register.*
-import com.example.ghienphim.databinding.ActivityRegisterBinding
 import androidx.databinding.DataBindingUtil
-
-
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
+import com.example.ghienphim.databinding.ActivityRegisterBinding
+import com.example.ghienphim.model.Post
+import com.example.ghienphim.model.User
+import com.example.ghienphim.sql.DatabaseHelper
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+
 
 class Register : AppCompatActivity() {
 
@@ -107,21 +102,36 @@ class Register : AppCompatActivity() {
 
     private fun postDatatoSQLite(context: Context,opt:Int){
         val check = action(context,opt)
-        if(check != 0 && !databaseHelper!!.checkUserExist(email=textInputEditEmail.text.toString(),name=textInputEditUsername.text.toString())) {
-            var user = User(id = 1,name = textInputEditUsername.text.toString(), pass = textInputEditPass.text.toString(),
-                    age = textInputEditAge.text.toString().toInt(), email = textInputEditEmail.text.toString())
-            databaseHelper.addUser(user)
-            user.pass = user.pass.hashCode().toString();
-            writeNewPost(user.name,user.email,user.pass,user.age.toString())
-            emptyInputEditText()
-            val intent = Intent(context, HomeScreen::class.java)
-            startActivity(intent)
-            finish()
+        val connManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val wifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI)
+        val mobile = connManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE)
+
+        if (wifi!!.isConnected || mobile!!.isConnected) {
+            if (check != 0 && !databaseHelper!!.checkUserExist(email = textInputEditEmail.text.toString(), name = textInputEditUsername.text.toString())) {
+                var user = User(id = 1, name = textInputEditUsername.text.toString(), pass = textInputEditPass.text.toString(),
+                        age = textInputEditAge.text.toString().toInt(), email = textInputEditEmail.text.toString())
+                databaseHelper.addUser(user)
+                user.pass = user.pass.hashCode().toString();
+                writeNewPost(user.name, user.email, user.pass, user.age.toString())
+                emptyInputEditText()
+                val intent = Intent(context, HomeScreen::class.java)
+                startActivity(intent)
+                finish()
+            } else {
+                val labelErr = AlertDialog.Builder(context)
+                labelErr.setTitle(R.string.noti)
+                labelErr.setMessage(R.string.exist_acc)
+                labelErr.setIcon(R.drawable.alert_img)
+
+                labelErr.setNegativeButton("Huỷ", DialogInterface.OnClickListener() { dialog, id -> dialog.cancel() })
+                val alertDialog: AlertDialog = labelErr.create()
+                alertDialog.show()
+            }
         }
-        else{
+        else {
             val labelErr = AlertDialog.Builder(context)
             labelErr.setTitle(R.string.noti)
-            labelErr.setMessage(R.string.exist_acc)
+            labelErr.setMessage(R.string.disconnect)
             labelErr.setIcon(R.drawable.alert_img)
 
             labelErr.setNegativeButton("Huỷ", DialogInterface.OnClickListener() { dialog, id -> dialog.cancel() })

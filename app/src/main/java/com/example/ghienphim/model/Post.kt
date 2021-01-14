@@ -15,11 +15,6 @@ public data class Post ( var name: String? = "", var email: String? ="", var pas
         )
     }
 
-//    protected constructor(name: String?, password: String?)
-//    {
-//        this.name= name;
-//        this.password = password
-//    }
 
 
 

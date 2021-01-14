@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.ghienphim
 
 import android.content.Intent
@@ -8,6 +10,7 @@ import android.widget.EditText
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.net.ConnectivityManager
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import com.example.ghienphim.sql.DatabaseHelper
@@ -70,65 +73,80 @@ class LogIn : AppCompatActivity() {
             }
         }
     }
-
-
-
-
     private fun verifyFromData(context: Context) {
-
         //if(databaseHelper!!.checkUser(username = textInputEditUsername.text.toString(), password = textInputEditPass.text.toString())){
-        if (textInputEditUsername.text.toString() != null && textInputEditPass.text.toString() != null){
-            val cur_user = textInputEditUsername.text.toString()
-            var cur_pass = textInputEditPass.text.toString()
-            cur_pass = cur_pass.hashCode().toString()
-            //database.child(cur_user)
-            database.addValueEventListener(object : ValueEventListener {
-                override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
-                }
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    var name = ""
-                    for (post in snapshot.children) {
-                        if (post.key == cur_user) {
-                            name = post.getValue().toString()
-                            break
+        val connManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val wifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI)
+        val mobile = connManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE)
+
+        if (wifi!!.isConnected || mobile!!.isConnected) {
+            if (textInputEditUsername.text.toString() != null && textInputEditPass.text.toString() != null) {
+                val cur_user = textInputEditUsername.text.toString()
+                var cur_pass = textInputEditPass.text.toString()
+
+                cur_pass = cur_pass.hashCode().toString()
+                //database.child(cur_user)
+                database.addValueEventListener(object : ValueEventListener {
+                    override fun onCancelled(error: DatabaseError) {
+                        TODO("Not yet implemented")
+                    }
+
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        var name = ""
+                        for (post in snapshot.children) {
+                            if (post.key == cur_user) {
+                                name = post.getValue().toString()
+                                break
+                            }
+                        }
+                        var result = ""
+                        var i = 10
+                        while (name[i] != ',') {
+                            result += name[i]
+                            i++;
+                        }
+                        if (result == cur_pass) {
+                            val intent = Intent(context, HomeScreen::class.java)
+                            startActivity(intent)
+                            finish()
                         }
                     }
-                    var result = ""
-                    var i = 10
-                    while (i < 19) {
-                        result += name[i]
-                        i++;
-                    }
-                    if (result == cur_pass) {
-                        val intent = Intent(context, HomeScreen::class.java)
-                        startActivity(intent)
-                        finish()
-                    }
-                }
                 })
+
+
+            } else if (databaseHelper!!.checkWPassUser(username = textInputEditUsername.text.toString())) {
+                val labelErr = AlertDialog.Builder(context)
+                labelErr.setTitle(R.string.noti)
+                labelErr.setMessage(R.string.wrong_acc)
+                labelErr.setIcon(R.drawable.alert_img)
+
+                labelErr.setNegativeButton("Huỷ", DialogInterface.OnClickListener() { dialog, id -> dialog.cancel() })
+                val alertDialog: AlertDialog = labelErr.create()
+                alertDialog.show()
+            } else {
+                val labelErr = AlertDialog.Builder(context)
+                labelErr.setTitle(R.string.noti)
+                labelErr.setMessage(R.string.unavai_acc)
+                labelErr.setIcon(R.drawable.alert_img)
+
+                labelErr.setNegativeButton("Huỷ", DialogInterface.OnClickListener() { dialog, id ->
+                    dialog.cancel()
+                    val intent = Intent(context, Option::class.java)
+                    startActivity(intent)
+                    finish()
+                })
+                val alertDialog: AlertDialog = labelErr.create()
+                alertDialog.show()
+            }
         }
-        else if(databaseHelper!!.checkWPassUser(username = textInputEditUsername.text.toString())){
+        else
+        {
             val labelErr = AlertDialog.Builder(context)
             labelErr.setTitle(R.string.noti)
-            labelErr.setMessage(R.string.wrong_acc)
+            labelErr.setMessage(R.string.disconnect)
             labelErr.setIcon(R.drawable.alert_img)
 
             labelErr.setNegativeButton("Huỷ", DialogInterface.OnClickListener() { dialog, id -> dialog.cancel() })
-            val alertDialog: AlertDialog = labelErr.create()
-            alertDialog.show()
-        }
-        else {
-            val labelErr = AlertDialog.Builder(context)
-            labelErr.setTitle(R.string.noti)
-            labelErr.setMessage(R.string.unavai_acc)
-            labelErr.setIcon(R.drawable.alert_img)
-
-            labelErr.setNegativeButton("Huỷ", DialogInterface.OnClickListener() {
-                dialog, id -> dialog.cancel()
-                val intent = Intent(context, Option::class.java)
-                startActivity(intent)
-                finish()})
             val alertDialog: AlertDialog = labelErr.create()
             alertDialog.show()
         }
