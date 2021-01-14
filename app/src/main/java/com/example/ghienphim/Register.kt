@@ -98,28 +98,11 @@ class Register : AppCompatActivity() {
         return opt
     }
 
-//    private fun writeNewUser(user: User) {
-//        val user = User(name = textInputEditUsername.text.toString(), pass = textInputEditPass.text.toString(),
-//            age = textInputEditAge.text.toString().toInt(), email = textInputEditEmail.text.toString())
-//        database.child("users").child(user.id.toString()).setValue(user)
-//
-//    }
-
-    private fun writeNewPost( username: String, email: String, password:String, age: String) {
-        // Create new post at /user-posts/$userid/$postid and at
-        // /posts/$postid simultaneously
+    private fun writeNewPost(username:String, email: String, password:String,  age:String) {
         val key = database.child("username").push().key
-
         val post = Post( username, email, password,age)
         val postValues = post.toMap()
         database.child(username).setValue(postValues)
-//        val childUpdates = hashMapOf<String, Any>(
-//            "$key" to postValues,
-//            //"/user-posts/$username/$key" to postValues
-//        )
-//
-//        //database.child("users").child(userId.toString()).setValue(user)
-        //database.updateChildren(childUpdates)
     }
 
     private fun postDatatoSQLite(context: Context,opt:Int){
@@ -132,7 +115,6 @@ class Register : AppCompatActivity() {
             writeNewPost(user.name,user.email,user.pass,user.age.toString())
             emptyInputEditText()
             val intent = Intent(context, HomeScreen::class.java)
-
             startActivity(intent)
             finish()
         }
