@@ -7,13 +7,16 @@ import android.widget.Toast
 import android.widget.PopupMenu
 import kotlinx.android.synthetic.main.activity_home_screen.*
 import kotlinx.android.synthetic.main.activity_userprofile.*
+import com.example.ghienphim.databinding.ActivityHomeScreenBinding
+import androidx.databinding.DataBindingUtil
 
 class HomeScreen : AppCompatActivity() {
+    private lateinit var binding: ActivityHomeScreenBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home_screen)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_home_screen)
 
-        btn_theloai.setOnClickListener{
+        binding.btnTheloai.setOnClickListener{
             val popup=PopupMenu(this,btn_theloai)
             popup.inflate(R.menu.list_popup_window_item)
             popup.setOnMenuItemClickListener{
@@ -23,7 +26,7 @@ class HomeScreen : AppCompatActivity() {
             popup.show()
         }
 
-        btn_quocgia.setOnClickListener{
+        binding.btnQuocgia.setOnClickListener{
             val popup=PopupMenu(this,btn_quocgia)
             popup.inflate(R.menu.show_quoc_gia)
             popup.setOnMenuItemClickListener{
@@ -33,7 +36,7 @@ class HomeScreen : AppCompatActivity() {
             popup.show()
         }
 
-        btn_nam.setOnClickListener{
+        binding.btnNam.setOnClickListener{
             val popup=PopupMenu(this,btn_nam)
             popup.inflate(R.menu.show_nam)
             popup.setOnMenuItemClickListener{
@@ -43,13 +46,13 @@ class HomeScreen : AppCompatActivity() {
             popup.show()
         }
 
-        profile_btn.setOnClickListener{
+        binding.profileBtn.setOnClickListener{
             val intent= Intent(this, userprofile::class.java)
             startActivity(intent)
             finish()
         }
 
-        search_btn.setOnClickListener{
+        binding.searchBtn.setOnClickListener{
             val intent= Intent(this, search::class.java)
             startActivity(intent)
             finish()
