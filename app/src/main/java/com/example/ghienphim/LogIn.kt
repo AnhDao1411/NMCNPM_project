@@ -19,15 +19,11 @@ import com.example.ghienphim.model.Post
 
 import com.example.ghienphim.databinding.ActivityLoginBinding
 import androidx.databinding.DataBindingUtil
-import com.example.ghienphim.model.CurrentUser
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.*
 import java.lang.IllegalArgumentException
-
-
-public var Cur = CurrentUser()
 
 class LogIn : AppCompatActivity() {
 
@@ -49,8 +45,6 @@ class LogIn : AppCompatActivity() {
         database = FirebaseDatabase.getInstance().getReference("user")
         textInputEditUsername = binding.editTendangnhap
         textInputEditPass = binding.editMatkhauDn
-
-
 
 
         initObjects()
@@ -90,11 +84,7 @@ class LogIn : AppCompatActivity() {
                 val cur_user = textInputEditUsername.text.toString()
                 var cur_pass = textInputEditPass.text.toString()
 
-                Cur.name = textInputEditUsername.text.toString()
-                Cur.pass = textInputEditPass.text.toString()
                 cur_pass = cur_pass.hashCode().toString()
-
-
                 //database.child(cur_user)
                 database.addValueEventListener(object : ValueEventListener {
                     override fun onCancelled(error: DatabaseError) {
