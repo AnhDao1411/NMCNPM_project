@@ -47,11 +47,22 @@ class change_password : AppCompatActivity() {
     {
         if (Cur.pass == textInputEditCurpass.text.toString()) {
             if (textInputEditConfirm.text.toString() == textInputEditNewpass.text.toString()) {
-                database.child(Cur.name.toString()).child("password")
-                    .setValue(textInputEditConfirm.text.toString().hashCode())
-                val intent = Intent(context, userprofile::class.java)
-                startActivity(intent)
-                finish()
+                if (textInputEditNewpass.text.length in 8..20) {
+                    database.child(Cur.name.toString()).child("password")
+                            .setValue(textInputEditConfirm.text.toString().hashCode())
+                    val intent = Intent(context, userprofile::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    val labelErr = AlertDialog.Builder(context)
+                    labelErr.setTitle(R.string.noti)
+                    labelErr.setMessage(R.string.wrongP)
+                    labelErr.setIcon(R.drawable.alert_img)
+
+                    labelErr.setNegativeButton("Huỷ", DialogInterface.OnClickListener() { dialog, id -> dialog.cancel() })
+                    val alertDialog: AlertDialog = labelErr.create()
+                    alertDialog.show()
+                }
             } else {
                 val labelErr = AlertDialog.Builder(context)
                 labelErr.setTitle(R.string.noti)

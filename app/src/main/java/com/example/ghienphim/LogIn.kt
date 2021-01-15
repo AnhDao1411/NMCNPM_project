@@ -92,6 +92,7 @@ class LogIn : AppCompatActivity() {
 
                 Cur.name = textInputEditUsername.text.toString()
                 Cur.pass = textInputEditPass.text.toString()
+
                 cur_pass = cur_pass.hashCode().toString()
 
 

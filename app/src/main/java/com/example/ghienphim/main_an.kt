@@ -50,10 +50,10 @@ class main_an : AppCompatActivity() {
 
         search_btn.setOnClickListener{
             val intent= Intent(this, search::class.java)
+            intent.putExtra("key",edit_timkiem.text.toString())
             startActivity(intent)
             finish()
         }
-
 
         home_film1.setOnClickListener{
             val intent= Intent(this, Description::class.java)

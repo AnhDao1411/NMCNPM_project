@@ -7,16 +7,13 @@ import android.widget.Toast
 import android.widget.PopupMenu
 import kotlinx.android.synthetic.main.activity_home_screen.*
 import kotlinx.android.synthetic.main.activity_userprofile.*
-import com.example.ghienphim.databinding.ActivityHomeScreenBinding
-import androidx.databinding.DataBindingUtil
 
 class HomeScreen : AppCompatActivity() {
-    private lateinit var binding: ActivityHomeScreenBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_home_screen)
+        setContentView(R.layout.activity_home_screen)
 
-        binding.btnTheloai.setOnClickListener{
+        btn_theloai.setOnClickListener{
             val popup=PopupMenu(this,btn_theloai)
             popup.inflate(R.menu.list_popup_window_item)
             popup.setOnMenuItemClickListener{
@@ -26,7 +23,7 @@ class HomeScreen : AppCompatActivity() {
             popup.show()
         }
 
-        binding.btnQuocgia.setOnClickListener{
+        btn_quocgia.setOnClickListener{
             val popup=PopupMenu(this,btn_quocgia)
             popup.inflate(R.menu.show_quoc_gia)
             popup.setOnMenuItemClickListener{
@@ -36,7 +33,7 @@ class HomeScreen : AppCompatActivity() {
             popup.show()
         }
 
-        binding.btnNam.setOnClickListener{
+        btn_nam.setOnClickListener{
             val popup=PopupMenu(this,btn_nam)
             popup.inflate(R.menu.show_nam)
             popup.setOnMenuItemClickListener{
@@ -46,18 +43,18 @@ class HomeScreen : AppCompatActivity() {
             popup.show()
         }
 
-        binding.profileBtn.setOnClickListener{
+        profile_btn.setOnClickListener{
             val intent= Intent(this, userprofile::class.java)
             startActivity(intent)
             finish()
         }
 
-        binding.searchBtn.setOnClickListener{
+        search_btn.setOnClickListener{
             val intent= Intent(this, search::class.java)
+            intent.putExtra("key",edit_timkiem.text.toString())
             startActivity(intent)
             finish()
         }
-
 
         home_film1.setOnClickListener{
             val intent= Intent(this, Description::class.java)
@@ -124,8 +121,6 @@ class HomeScreen : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-
-
     }
 }
 
