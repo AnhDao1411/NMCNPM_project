@@ -16,11 +16,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.databinding.DataBindingUtil
 import com.example.ghienphim.databinding.ActivityRegisterBinding
+import com.example.ghienphim.model.CurrentUser
 import com.example.ghienphim.model.Post
 import com.example.ghienphim.model.User
 import com.example.ghienphim.sql.DatabaseHelper
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+
 
 
 class Register : AppCompatActivity() {
@@ -112,6 +114,8 @@ class Register : AppCompatActivity() {
                         age = textInputEditAge.text.toString().toInt(), email = textInputEditEmail.text.toString())
                 databaseHelper.addUser(user)
                 user.pass = user.pass.hashCode().toString();
+                Cur.name = textInputEditUsername.toString()
+                Cur.pass = textInputEditPass.toString()
                 writeNewPost(user.name, user.email, user.pass, user.age.toString())
                 emptyInputEditText()
                 val intent = Intent(context, HomeScreen::class.java)

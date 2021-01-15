@@ -22,7 +22,6 @@ class FilmAdapter(options: FirestoreRecyclerOptions<FilmsModel>) :
     override fun onBindViewHolder(holder: FilmAdapterVH, position: Int, model: FilmsModel) {
         holder.filmName.text = model.Name
         holder.filmRate.text = model.Rating.toString()
-
         //holder.imgLink.
         //Picasso.get().load(model.ImageLink).into(holder.imgLink)
     }
