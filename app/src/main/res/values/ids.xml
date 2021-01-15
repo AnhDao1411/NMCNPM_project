@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="name_film1" type="id" />
+    <item name="name_film2" type="id" />
+    <item name="name_film3" type="id" />
+    <item name="name_film4" type="id" />
+    <item name="name_film5" type="id" />
+    <item name="name_film6" type="id" />
+</resources>

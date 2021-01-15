@@ -9,7 +9,7 @@ class userprofile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_userprofile)
-        profile_name.text = Cur.name
+        profile_name.text = Cur.name.toString()
 
 
         btn_pyt.setOnClickListener{

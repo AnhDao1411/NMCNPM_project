@@ -2,33 +2,30 @@ package com.example.ghienphim.sql
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.example.ghienphim.model.User
 import android.widget.Toast
+import com.example.ghienphim.Cur
 import java.util.*
 import kotlin.collections.List
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     // create table sql query
-    private val createusertable = ("CREATE TABLE " + TABLE_USER + " ("
-            + COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_USER_NAME + " TEXT,"
-            + COLUMN_USER_EMAIL + " TEXT," + COLUMN_USER_PASSWORD + " TEXT," + COLUMN_USER_AGE + " INTEGER)")
 
-    // drop table sql query
-    private val dropusertable = "DROP TABLE IF EXISTS $TABLE_USER"
 
     override fun onCreate(db: SQLiteDatabase) {
-        db.execSQL(createusertable)
+//        db.execSQL(createusertable)
+        db.execSQL("CREATE TABLE FAVORITE(FName TEXT PRIMARY KEY)");
     }
-
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
 
         //Drop User Table if exist
-        db.execSQL(dropusertable)
-
+//        db.execSQL(dropusertable)
+        db.execSQL("DROP TABLE IF EXISTS FAVORITE")
         // Create tables again
         onCreate(db)
 
@@ -39,40 +36,24 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
      *
      * @return list
      */
-    fun getAllUser(): List<User> {
-
-        // array of columns to fetch
-        val columns = arrayOf(COLUMN_USER_ID, COLUMN_USER_NAME, COLUMN_USER_EMAIL, COLUMN_USER_PASSWORD, COLUMN_USER_AGE)
-
-        // sorting orders
-        val sortOrder = "$COLUMN_USER_NAME ASC"
-        val userList = kotlin.collections.ArrayList<User>()
+    fun getAllFilm(): List<String> {
+        val filmList = kotlin.collections.ArrayList<String>()
 
         val db = this.readableDatabase
 
         // query the user table
-        val cursor = db.query(
-            TABLE_USER, //Table to query
-            columns,            //columns to return
-            null,     //columns for the WHERE clause
-            null,  //The values for the WHERE clause
-            null,      //group the rows
-            null,       //filter by row groups
-            sortOrder)         //The sort order
+        val cursor = db.rawQuery("SELECT * FROM FAVORITE", null)
         if (cursor.moveToFirst()) {
-            do {
-                val user = User(id = cursor.getString(cursor.getColumnIndex(COLUMN_USER_ID)).toInt(),
-                    name = cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME)),
-                    email = cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL)),
-                    pass = cursor.getString(cursor.getColumnIndex(COLUMN_USER_PASSWORD)),
-                    age = cursor.getString(cursor.getColumnIndex(COLUMN_USER_AGE)).toInt())
+            for(i in 1..cursor.count) {
+                val film = cursor.getString(0)
 
-                userList.add(user)
-            } while (cursor.moveToNext())
+                filmList.add(film)
+                cursor.moveToNext()
+            }
         }
         cursor.close()
         db.close()
-        return userList
+        return filmList
     }
 
 
@@ -81,7 +62,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
      *
      * @param user
      */
-    fun addUser(user: User) {
+    fun addFilm(fname: String) : Long {
         val db = this.writableDatabase
 //
 //        val listU = db.query(TABLE_USER, //Table to query
@@ -95,14 +76,13 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         val values = ContentValues()
 //        user.id = values
 //        values.put(COLUMN_USER_ID, user.id)
-        values.put(COLUMN_USER_NAME, user.name)
-        values.put(COLUMN_USER_EMAIL, user.email)
-        values.put(COLUMN_USER_PASSWORD, user.pass)
-        values.put(COLUMN_USER_AGE, user.age)
+        values.put("FName", fname)
 
         // Inserting Row
-        db.insert(TABLE_USER, null, values)
+        val ins = db.insert("FAVORITE", null, values)
+
         db.close()
+        return ins
     }
 
     /**
@@ -110,36 +90,36 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
      *
      * @param user
      */
-    fun updateUser(user: User) {
-        val db = this.writableDatabase
-
-        val values = ContentValues()
-        values.put(COLUMN_USER_NAME, user.name)
-        values.put(COLUMN_USER_EMAIL, user.email)
-        values.put(COLUMN_USER_PASSWORD, user.pass)
-        values.put(COLUMN_USER_AGE, user.age)
-
-        // updating row
-        db.update(
-            TABLE_USER, values, "$COLUMN_USER_ID = ?",
-            arrayOf(user.id.toString()))
-        db.close()
-    }
+//    fun updateUser(user: User) {
+//        val db = this.writableDatabase
+//
+//        val values = ContentValues()
+//        values.put(COLUMN_USER_NAME, user.name)
+//        values.put(COLUMN_USER_EMAIL, user.email)
+//        values.put(COLUMN_USER_PASSWORD, user.pass)
+//        values.put(COLUMN_USER_AGE, user.age)
+//
+//        // updating row
+//        db.update(
+//            TABLE_USER, values, "$COLUMN_USER_ID = ?",
+//            arrayOf(user.id.toString()))
+//        db.close()
+//    }
 
     /**
      * This method is to delete user record
      *
      * @param user
      */
-    fun deleteUser(user: User) {
-
-        val db = this.writableDatabase
-        // delete user record by id
-        db.delete(
-            TABLE_USER, "$COLUMN_USER_ID = ?",
-            arrayOf(user.id.toString()))
-        db.close()
-    }
+//    fun deleteFilm(fname: String) {
+//
+//        val db = this.writableDatabase
+//        // delete user record by id
+//        db.delete(
+//            TABLE_USER, "$COLUMN_FILM_NAME = ?",
+//            arrayOf(fname))
+//        db.close()
+//    }
 
     /**
      * This method to check user exist or not
@@ -147,17 +127,20 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
      * @param email
      * @return true/false
      */
-    fun checkUserExist(email: String, name: String): Boolean {
-
+    fun checkFilmExist(fname: String): Boolean {
         // array of columns to fetch
-        val columns = arrayOf(COLUMN_USER_ID)
+
+//        val db = this.writableDatabase
+//        db.execSQL("CREATE TABLE FAVORITE (COLUMN_FILM_NAME TEXT)")
+//        db.close()
         val db = this.readableDatabase
+        //val columns = arrayOf(COLUMN_FILM_NAME)
 
         // selection criteria
-        val selection = "$COLUMN_USER_EMAIL = ? OR $COLUMN_USER_NAME = ?"
+//        val selection = "$COLUMN_FILM_NAME = ?"
 
         // selection argument
-        val selectionArgs = arrayOf(email, name)
+//        val selectionArgs = arrayOf(fname)
 
         // query user table with condition
         /**
@@ -165,25 +148,26 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
          * SQL query equivalent to this query function is
          * SELECT user_id FROM user WHERE user_email = 'jack@androidtutorialshub.com';
          */
-        val cursor = db.query(
-            TABLE_USER, //Table to query
-            columns,        //columns to return
-            selection,      //columns for the WHERE clause
-            selectionArgs,  //The values for the WHERE clause
-            null,  //group the rows
-            null,   //filter by row groups
-            null)  //The sort order
+//        val cursor = db.query(
+//            TABLE_USER, //Table to query
+//            columns,        //columns to return
+//            selection,      //columns for the WHERE clause
+//            selectionArgs,  //The values for the WHERE clause
+//            null,  //group the rows
+//            null,   //filter by row groups
+//            null)  //The sort order
 
 
-        val cursorCount = cursor.count
-        cursor.close()
-        db.close()
+//        val cursorCount = cursor.count
+//        cursor.close()
 
-        if (cursorCount > 0) {
+        val cursor = db.rawQuery("SELECT * FROM FAVORITE WHERE COLUMN_FILM_NAME=?", arrayOf(fname));
+        cursor.moveToNext()
+        if (cursor.isNull(0)) { // khong co phim nay trong table
             return true
         }
-
         return false
+
     }
 
     /**
@@ -193,95 +177,92 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
      * @param password
      * @return true/false
      */
-    fun checkUser(username: String, password: String): Boolean {
-
-        // array of columns to fetch
-        val columns = arrayOf(COLUMN_USER_ID)
-
-        val db = this.readableDatabase
-
-        // selection criteria
-        val selection = "$COLUMN_USER_NAME = ? AND $COLUMN_USER_PASSWORD = ?"
-
-        // selection arguments
-        val selectionArgs = arrayOf(username, password)
-
-        // query user table with conditions
-        /**
-         * Here query function is used to fetch records from user table this function works like we use sql query.
-         * SQL query equivalent to this query function is
-         * SELECT user_id FROM user WHERE user_email = 'jack@androidtutorialshub.com' AND user_password = 'qwerty';
-         */
-        val cursor = db.query(
-            TABLE_USER, //Table to query
-            columns, //columns to return
-            selection, //columns for the WHERE clause
-            selectionArgs, //The values for the WHERE clause
-            null,  //group the rows
-            null, //filter by row groups
-            null) //The sort order
-
-        val cursorCount = cursor.count
-        cursor.close()
-        db.close()
-
-        if (cursorCount > 0)
-            return true
-        return false
-    }
-    fun checkWPassUser(username: String): Boolean {
-
-        // array of columns to fetch
-        val columns = arrayOf(COLUMN_USER_ID)
-
-        val db = this.readableDatabase
-
-        // selection criteria
-        val selection = "$COLUMN_USER_NAME = ?"
-
-        // selection arguments
-        val selectionArgs = arrayOf(username)
-
-        // query user table with conditions
-        /**
-         * Here query function is used to fetch records from user table this function works like we use sql query.
-         * SQL query equivalent to this query function is
-         * SELECT user_id FROM user WHERE user_email = 'jack@androidtutorialshub.com' AND user_password = 'qwerty';
-         */
-        val cursor = db.query(
-                TABLE_USER, //Table to query
-                columns, //columns to return
-                selection, //columns for the WHERE clause
-                selectionArgs, //The values for the WHERE clause
-                null,  //group the rows
-                null, //filter by row groups
-                null) //The sort order
-
-        val cursorCount = cursor.count
-        cursor.close()
-        db.close()
-
-        if (cursorCount > 0)
-            return true
-        return false
-    }
+//    fun checkUser(username: String, password: String): Boolean {
+//
+//        // array of columns to fetch
+//        val columns = arrayOf(COLUMN_USER_ID)
+//
+//        val db = this.readableDatabase
+//
+//        // selection criteria
+//        val selection = "$COLUMN_USER_NAME = ? AND $COLUMN_USER_PASSWORD = ?"
+//
+//        // selection arguments
+//        val selectionArgs = arrayOf(username, password)
+//
+//        // query user table with conditions
+//        /**
+//         * Here query function is used to fetch records from user table this function works like we use sql query.
+//         * SQL query equivalent to this query function is
+//         * SELECT user_id FROM user WHERE user_email = 'jack@androidtutorialshub.com' AND user_password = 'qwerty';
+//         */
+//        val cursor = db.query(
+//            TABLE_USER, //Table to query
+//            columns, //columns to return
+//            selection, //columns for the WHERE clause
+//            selectionArgs, //The values for the WHERE clause
+//            null,  //group the rows
+//            null, //filter by row groups
+//            null) //The sort order
+//
+//        val cursorCount = cursor.count
+//        cursor.close()
+//        db.close()
+//
+//        if (cursorCount > 0)
+//            return true
+//        return false
+//    }
+//    fun checkWPassUser(username: String): Boolean {
+//
+//        // array of columns to fetch
+//        val columns = arrayOf(COLUMN_USER_ID)
+//
+//        val db = this.readableDatabase
+//
+//        // selection criteria
+//        val selection = "$COLUMN_USER_NAME = ?"
+//
+//        // selection arguments
+//        val selectionArgs = arrayOf(username)
+//
+//        // query user table with conditions
+//        /**
+//         * Here query function is used to fetch records from user table this function works like we use sql query.
+//         * SQL query equivalent to this query function is
+//         * SELECT user_id FROM user WHERE user_email = 'jack@androidtutorialshub.com' AND user_password = 'qwerty';
+//         */
+//        val cursor = db.query(
+//                TABLE_USER, //Table to query
+//                columns, //columns to return
+//                selection, //columns for the WHERE clause
+//                selectionArgs, //The values for the WHERE clause
+//                null,  //group the rows
+//                null, //filter by row groups
+//                null) //The sort order
+//
+//        val cursorCount = cursor.count
+//        cursor.close()
+//        db.close()
+//
+//        if (cursorCount > 0)
+//            return true
+//        return false
+//    }
 
     companion object {
 
         // Database Version
-        private val DATABASE_VERSION = 1
+        private val DATABASE_VERSION = 2
 
         // Database Name
-        private val DATABASE_NAME = "UserManager.db"
+        private val DATABASE_NAME = Cur.name+".db"
+//
+//        // User table name
+//        private val TABLE_USER = "FAVORITE"
+//
+//        // User Table Columns names
+//        private val COLUMN_FILM_NAME = "COLUMN_FILM_NAME"
 
-        // User table name
-        private val TABLE_USER = "user"
-
-        // User Table Columns names
-        private val COLUMN_USER_ID = "user_id"
-        private val COLUMN_USER_NAME = "user_name"
-        private val COLUMN_USER_EMAIL = "user_email"
-        private val COLUMN_USER_AGE = "user_age"
-        private val COLUMN_USER_PASSWORD = "user_password"
     }
 }

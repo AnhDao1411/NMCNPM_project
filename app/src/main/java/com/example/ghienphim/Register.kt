@@ -109,10 +109,10 @@ class Register : AppCompatActivity() {
         val mobile = connManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE)
 
         if (wifi!!.isConnected || mobile!!.isConnected) {
-            if (check != 0 && !databaseHelper!!.checkUserExist(email = textInputEditEmail.text.toString(), name = textInputEditUsername.text.toString())) {
+            if (check != 0) {
                 var user = User(id = 1, name = textInputEditUsername.text.toString(), pass = textInputEditPass.text.toString(),
                         age = textInputEditAge.text.toString().toInt(), email = textInputEditEmail.text.toString())
-                databaseHelper.addUser(user)
+                //databaseHelper.addUser(user)
                 user.pass = user.pass.hashCode().toString();
                 Cur.name = textInputEditUsername.toString()
                 Cur.pass = textInputEditPass.toString()

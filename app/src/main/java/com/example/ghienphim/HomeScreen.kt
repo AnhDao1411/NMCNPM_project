@@ -58,32 +58,38 @@ class HomeScreen : AppCompatActivity() {
 
         home_film1.setOnClickListener{
             val intent= Intent(this, Description::class.java)
+            intent.putExtra("key",name_film1.text.toString())
             startActivity(intent)
             finish()
         }
 
         home_film2.setOnClickListener{
-            val intent= Intent(this, description_12::class.java)
+            val intent= Intent(this, Description::class.java)
+            intent.putExtra("key",name_film2.text.toString())
             startActivity(intent)
             finish()
         }
         home_film3.setOnClickListener{
-            val intent= Intent(this, description_vd::class.java)
+            val intent= Intent(this, Description::class.java)
+            intent.putExtra("key",name_film3.text.toString())
             startActivity(intent)
             finish()
         }
         home_film4.setOnClickListener{
-            val intent= Intent(this, Description2::class.java)
+            val intent= Intent(this, Description::class.java)
+            intent.putExtra("key",name_film4.text.toString())
             startActivity(intent)
             finish()
         }
         home_film5.setOnClickListener{
-            val intent= Intent(this, description_12::class.java)
+            val intent= Intent(this, Description::class.java)
+            intent.putExtra("key",name_film5.text.toString())
             startActivity(intent)
             finish()
         }
         home_film6.setOnClickListener{
-            val intent= Intent(this, description_vd::class.java)
+            val intent= Intent(this, Description::class.java)
+            intent.putExtra("key",name_film6.text.toString())
             startActivity(intent)
             finish()
         }

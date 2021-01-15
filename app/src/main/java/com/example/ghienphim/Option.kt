@@ -10,6 +10,9 @@ public var Cur = CurrentUser()
 class Option : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+
         setContentView(R.layout.activity_option)
         btn_dangky.setOnClickListener{
             val intent=Intent(this, Register::class.java)

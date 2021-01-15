@@ -28,7 +28,7 @@ class search : AppCompatActivity() {
         setContentView(R.layout.activity_search)
         val intent = getIntent()
         name = intent.getStringExtra("key").toString()
-        collectionReference = db.collection("Films_Name")
+        collectionReference = db.collection("Films")
 
         setUpRecyclerview()
         //link to HomeScreen

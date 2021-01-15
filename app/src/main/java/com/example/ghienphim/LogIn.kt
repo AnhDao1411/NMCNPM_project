@@ -50,9 +50,6 @@ class LogIn : AppCompatActivity() {
         textInputEditUsername = binding.editTendangnhap
         textInputEditPass = binding.editMatkhauDn
 
-
-
-
         initObjects()
         binding.returnBtnDn.setOnClickListener {
             val intent = Intent(this, Option::class.java)
@@ -121,33 +118,37 @@ class LogIn : AppCompatActivity() {
                             startActivity(intent)
                             finish()
                         }
+                        else
+                        {
+                            val labelErr = AlertDialog.Builder(context)
+                            labelErr.setTitle(R.string.noti)
+                            labelErr.setMessage(R.string.wrong_acc)
+                            labelErr.setIcon(R.drawable.alert_img)
+
+                            labelErr.setNegativeButton("Huỷ", DialogInterface.OnClickListener() { dialog, id -> dialog.cancel() })
+                            val alertDialog: AlertDialog = labelErr.create()
+                            alertDialog.show()
+                        }
+
+                        if (name == "")
+                        {
+                            val labelErr = AlertDialog.Builder(context)
+                            labelErr.setTitle(R.string.noti)
+                            labelErr.setMessage(R.string.unavai_acc)
+                            labelErr.setIcon(R.drawable.alert_img)
+
+                            labelErr.setNegativeButton("Huỷ", DialogInterface.OnClickListener() { dialog, id ->
+                                dialog.cancel()
+                                val intent = Intent(context, Option::class.java)
+                                startActivity(intent)
+                                finish()
+                            })
+                            val alertDialog: AlertDialog = labelErr.create()
+                            alertDialog.show()
+                        }
+
                     }
                 })
-
-
-            } else if (databaseHelper!!.checkWPassUser(username = textInputEditUsername.text.toString())) {
-                val labelErr = AlertDialog.Builder(context)
-                labelErr.setTitle(R.string.noti)
-                labelErr.setMessage(R.string.wrong_acc)
-                labelErr.setIcon(R.drawable.alert_img)
-
-                labelErr.setNegativeButton("Huỷ", DialogInterface.OnClickListener() { dialog, id -> dialog.cancel() })
-                val alertDialog: AlertDialog = labelErr.create()
-                alertDialog.show()
-            } else {
-                val labelErr = AlertDialog.Builder(context)
-                labelErr.setTitle(R.string.noti)
-                labelErr.setMessage(R.string.unavai_acc)
-                labelErr.setIcon(R.drawable.alert_img)
-
-                labelErr.setNegativeButton("Huỷ", DialogInterface.OnClickListener() { dialog, id ->
-                    dialog.cancel()
-                    val intent = Intent(context, Option::class.java)
-                    startActivity(intent)
-                    finish()
-                })
-                val alertDialog: AlertDialog = labelErr.create()
-                alertDialog.show()
             }
         }
         else
