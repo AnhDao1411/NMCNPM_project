@@ -72,11 +72,11 @@ class Description : AppCompatActivity() {
 
         btn_heart.setOnClickListener{
                 if (databaseHelper.addFilm(name.toString()) != -1L)
-                    Toast.makeText(this, "thanh cong", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Thành công", Toast.LENGTH_SHORT).show()
                 else
-                    Toast.makeText(this, "that bai", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Thất bại", Toast.LENGTH_SHORT).show()
 
-                databaseHelper.getAllFilm()
+
             }
 
 
