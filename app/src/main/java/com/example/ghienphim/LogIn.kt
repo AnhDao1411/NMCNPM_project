@@ -167,7 +167,7 @@ class LogIn : AppCompatActivity() {
     private fun validInput(view: View):Boolean{
         //check Password's length is in range 8 - 20 letter
         if(textInputEditPass.text.length !in 8..20)
-           return false
+            return false
         return true
     }
     private fun initObjects(){

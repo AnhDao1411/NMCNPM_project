@@ -61,8 +61,8 @@ class Register : AppCompatActivity() {
 
         binding.btnDangky.setOnClickListener {
             if (textInputEditEmail.text.isBlank() || textInputEditUsername.text.isBlank()
-                    || textInputEditPass.text.isBlank() || textInputEditConPass.text.isBlank()
-                    || textInputEditAge.text.isBlank()) {
+                || textInputEditPass.text.isBlank() || textInputEditConPass.text.isBlank()
+                || textInputEditAge.text.isBlank()) {
                 Toast.makeText(this, "Vui lòng nhập thông tin!!!", Toast.LENGTH_SHORT).show()
             } else {
 //            Toast.makeText(this, textInputEditEmail.text, Toast.LENGTH_LONG).show()
@@ -111,7 +111,7 @@ class Register : AppCompatActivity() {
         if (wifi!!.isConnected || mobile!!.isConnected) {
             if (check != 0) {
                 var user = User(id = 1, name = textInputEditUsername.text.toString(), pass = textInputEditPass.text.toString(),
-                        age = textInputEditAge.text.toString().toInt(), email = textInputEditEmail.text.toString())
+                    age = textInputEditAge.text.toString().toInt(), email = textInputEditEmail.text.toString())
                 //databaseHelper.addUser(user)
                 user.pass = user.pass.hashCode().toString();
                 Cur.name = textInputEditUsername.toString()

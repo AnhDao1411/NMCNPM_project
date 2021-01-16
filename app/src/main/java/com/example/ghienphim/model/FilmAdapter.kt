@@ -11,25 +11,24 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.row_films.view.*
 
-class FilmAdapter(options: FirestoreRecyclerOptions<FilmsModel>) :
-    FirestoreRecyclerAdapter<FilmsModel, FilmAdapter.FilmAdapterVH>(options) {
-
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmAdapterVH {
-        return FilmAdapterVH(LayoutInflater.from(parent.context).inflate(R.layout.row_films,parent,false))
-    }
-
-    override fun onBindViewHolder(holder: FilmAdapterVH, position: Int, model: FilmsModel) {
-        holder.filmName.text = model.Name
-        holder.filmRate.text = model.Rating.toString()
-
-        //holder.imgLink.
-        //Picasso.get().load(model.ImageLink).into(holder.imgLink)
-    }
-
-    class FilmAdapterVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var filmName = itemView.tvFilmname
-        var filmRate = itemView.tvRate
-        //var imgLink = itemView.tvImglink
-    }
+//class FilmAdapter(options: FirestoreRecyclerOptions<FilmsModel>) :
+//    FirestoreRecyclerAdapter<FilmsModel, FilmAdapterVH>(options) {
+//
+//
+//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmAdapterVH {
+//        return FilmAdapterVH(LayoutInflater.from(parent.context).inflate(R.layout.row_films,parent,false))
+//    }
+//
+//    override fun onBindViewHolder(holder: FilmAdapterVH, position: Int, model: FilmsModel) {
+////        val film = filmsList[position]
+//        holder.filmName.text = model.Name
+//        holder.filmRate.text = model.Rating.toString()
+//
+//        //holder.imgLink.
+//        //Picasso.get().load(model.ImageLink).into(holder.imgLink)
+//    }
+//}
+class FilmAdapterVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    var filmName = itemView.tvFilmname
+    var filmRate = itemView.tvRate
 }

@@ -126,7 +126,6 @@
     </LinearLayout>
 
     <HorizontalScrollView
-        android:id="@+id/horizontalScrollView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="250dp"
@@ -153,26 +152,12 @@
                     android:layout_weight="0"
                     app:srcCompat="@drawable/demo_film" />
 
-                <TextView
-                    android:id="@id/name_film1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Nhà tù Shawshank"
-                    android:visibility="gone"/>
-
                 <ImageView
                     android:id="@+id/home_film2"
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
                     app:srcCompat="@drawable/demo_film2" />
-
-                <TextView
-                    android:id="@id/name_film2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="12 Angry Men"
-                    android:visibility="gone" />
 
                 <ImageView
                     android:id="@+id/home_film3"
@@ -181,13 +166,6 @@
                     android:layout_weight="0"
                     app:srcCompat="@drawable/demo_film3" />
 
-                <TextView
-                    android:id="@id/name_film3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Vùng đất linh hồn"
-                    android:visibility="gone" />
-
                 <ImageView
                     android:id="@+id/home_film4"
                     android:layout_width="110dp"
@@ -195,42 +173,19 @@
                     android:layout_weight="0"
                     app:srcCompat="@drawable/demo_film4" />
 
-                <TextView
-                    android:id="@id/name_film4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Bố già"
-                    android:visibility="gone" />
-
-
                 <ImageView
                     android:id="@+id/home_film5"
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
-                    app:srcCompat="@drawable/demo_film5" />
-
-                <TextView
-                    android:id="@id/name_film5"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="1917"
-                    android:visibility="gone" />
+                    app:srcCompat="@drawable/demo_film2" />
 
                 <ImageView
                     android:id="@+id/home_film6"
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
-                    app:srcCompat="@drawable/demo_film6" />
-
-                <TextView
-                    android:id="@id/name_film6"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Cuộc sống tuyệt vời"
-                    android:visibility="gone" />
-
+                    app:srcCompat="@drawable/demo_film3" />
             </LinearLayout>
         </LinearLayout>
     </HorizontalScrollView>

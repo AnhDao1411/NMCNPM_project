@@ -47,14 +47,14 @@
         android:id="@+id/imageView3"
         android:layout_width="150dp"
         android:layout_height="200dp"
-        app:layout_constraintEnd_toStartOf="@+id/film_description"
+        app:layout_constraintEnd_toStartOf="@+id/filmName"
         app:layout_constraintHorizontal_bias="0.288"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:srcCompat="@drawable/demo_film" />
 
     <TextView
-        android:id="@+id/film_description"
+        android:id="@+id/filmName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -81,7 +81,7 @@
         android:hapticFeedbackEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/film_description"
+        app:layout_constraintTop_toBottomOf="@+id/filmName"
         app:layout_constraintVertical_chainStyle="spread"
         android:theme="@style/RatingBar"/>
 
@@ -164,7 +164,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/rating_dis"
+            android:id="@+id/rate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"

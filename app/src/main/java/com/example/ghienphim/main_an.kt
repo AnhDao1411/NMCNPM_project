@@ -61,65 +61,10 @@ class main_an : AppCompatActivity() {
             finish()
         }
 
-        home_film2.setOnClickListener{
-            val intent= Intent(this, description_12::class.java)
-            startActivity(intent)
-            finish()
-        }
-        home_film3.setOnClickListener{
-            val intent= Intent(this, description_vd::class.java)
-            startActivity(intent)
-            finish()
-        }
-        home_film4.setOnClickListener{
-            val intent= Intent(this, Description2::class.java)
-            startActivity(intent)
-            finish()
-        }
-        home_film5.setOnClickListener{
-            val intent= Intent(this, description_12::class.java)
-            startActivity(intent)
-            finish()
-        }
-        home_film6.setOnClickListener{
-            val intent= Intent(this, description_vd::class.java)
-            startActivity(intent)
-            finish()
-        }
-
-
-        home_film7.setOnClickListener{
-            val intent= Intent(this, Description2::class.java)
-            startActivity(intent)
-            finish()
-        }
-
-        home_film8.setOnClickListener{
-            val intent= Intent(this, description_vd::class.java)
-            startActivity(intent)
-            finish()
-        }
-        home_film9.setOnClickListener{
-            val intent= Intent(this, description_12::class.java)
-            startActivity(intent)
-            finish()
-        }
         home_film10.setOnClickListener{
             val intent= Intent(this, Description::class.java)
             startActivity(intent)
             finish()
         }
-
-        home_film11.setOnClickListener{
-            val intent= Intent(this, description_vd::class.java)
-            startActivity(intent)
-            finish()
-        }
-        home_film12.setOnClickListener{
-            val intent= Intent(this, description_12::class.java)
-            startActivity(intent)
-            finish()
-        }
-
     }
 }

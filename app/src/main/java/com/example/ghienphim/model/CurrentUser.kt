@@ -4,4 +4,5 @@ class CurrentUser : Application()
 {
     var name = "";
     var pass = "";
+    var opt=0;
 }

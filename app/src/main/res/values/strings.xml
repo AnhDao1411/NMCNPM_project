@@ -84,6 +84,7 @@
     <string name="new_confirm_Pass">Vui lòng kiểm tra lại xác nhận mật khẩu!!!</string>
     <string name="new_current_Pass">Sai mật khẩu hiện tại!!!</string>
     <string name="unavai_acc">Tài khoản không hợp lệ.\n Vui lòng nhập tài khoản khác hoặc đăng ký một tài khoản mới!!!</string>
+    <string name="non_exist_f">Phim này không tồn tại trong hệ thống!!!</string>
 
     //history screen
     <string name="his_name1">Nhà tù Shawshank</string>

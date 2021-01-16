@@ -51,7 +51,7 @@ class Favorite : AppCompatActivity() {
 
 
 
-//
+    //
     class AdapterFav(val list: ArrayList<String>) : RecyclerView.Adapter<IdTitleViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IdTitleViewHolder {
@@ -68,60 +68,12 @@ class Favorite : AppCompatActivity() {
         override fun onBindViewHolder(holder: IdTitleViewHolder, position: Int) {
             val currentItem = list[position]
             holder.textViewTitle.text = currentItem.toString()
-            holder.textViewTitle.setOnClickListener {
-                val t = 2
-            }
-    //        holder.itemView.setOnClickListener {
-    //            clickLambda(currentItem.id)
-    //        }
+            //        holder.itemView.setOnClickListener {
+            //            clickLambda(currentItem.id)
+            //        }
         }
 
     } // IdTitleAdapter
 
 
 }
-    // link to description
-//        fav_1.setOnClickListener {
-//            val intent = Intent(this, Description::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
-//
-//        fav_2.setOnClickListener {
-//            val intent = Intent(this, description_12::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
-//
-//        fav_3.setOnClickListener {
-//            val intent = Intent(this, description_vd::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
-//
-//        fav_4.setOnClickListener {
-//            val intent = Intent(this, Description2::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
-//
-//        fav_5.setOnClickListener {
-//            val intent = Intent(this, Description::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
-//
-//        fav_6.setOnClickListener {
-//            val intent = Intent(this, description_12::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
-
-    //press star to add database
-
-//    fun  setUpRecycView()
-//    {
-//        var list: List<String>
-//        list =  databaseHelper.getAllFilm()
-//
-//    }
