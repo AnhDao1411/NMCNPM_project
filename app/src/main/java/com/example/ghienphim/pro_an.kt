@@ -11,7 +11,7 @@ class pro_an : AppCompatActivity() {
         setContentView(R.layout.activity_pro_an)
 
         return_btn2.setOnClickListener{
-            val intent = Intent(this, HomeScreen::class.java)
+            val intent = Intent(this, main_an::class.java)
             startActivity(intent)
             finish()
         }

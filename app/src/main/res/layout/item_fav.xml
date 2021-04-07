@@ -3,15 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".Favorite">
+
     <LinearLayout
         android:id="@+id/fav"
         android:layout_width="415dp"
         android:layout_height="100dp"
         android:layout_marginTop="0dp"
-        android:clickable="true"
         android:background="#FCF9EE"
+        android:clickable="true"
         android:orientation="horizontal"
         android:visibility="visible">
 
@@ -51,7 +52,7 @@
             android:layout_marginTop="22dp"
             android:layout_weight="1"
             android:backgroundTint="#00FFEB3B"
-            app:srcCompat="@drawable/star_del"/>
+            app:srcCompat="@drawable/star_del" />
 
     </LinearLayout>
 

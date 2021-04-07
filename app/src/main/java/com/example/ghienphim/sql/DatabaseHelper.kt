@@ -2,30 +2,30 @@ package com.example.ghienphim.sql
 
 import android.content.ContentValues
 import android.content.Context
-import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.example.ghienphim.model.User
-import android.widget.Toast
 import com.example.ghienphim.Cur
 import java.util.*
-import kotlin.collections.List
+import kotlin.collections.ArrayList
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     // create table sql query
-
-
+    private val TABLE_USER = Cur.name.toString()
+    private val create_table = ("CREATE TABLE "+ TABLE_USER +" (" + COLUMN_FILM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_FILM_NAME + " TEXT" +")")
+    private val drop_user_table = "DROP TABLE IF EXISTS $TABLE_USER"
+    private val create_if_not = ("CREATE TABLE IF NOT EXISTS $TABLE_USER" +" (" + COLUMN_FILM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_FILM_NAME + " TEXT" +")")
     override fun onCreate(db: SQLiteDatabase) {
 //        db.execSQL(createusertable)
-        db.execSQL("CREATE TABLE FAVORITE(FName TEXT PRIMARY KEY)");
-    }
+//        DATABASE_VERSION += 1
 
+        db.execSQL(create_table)
+    }
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
 
         //Drop User Table if exist
 //        db.execSQL(dropusertable)
-        db.execSQL("DROP TABLE IF EXISTS FAVORITE")
+        db.execSQL(drop_user_table)
         // Create tables again
         onCreate(db)
 
@@ -36,20 +36,26 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
      *
      * @return list
      */
-    fun getAllFilm(): List<String> {
-        val filmList = kotlin.collections.ArrayList<String>()
-
+    fun getAllFilm(): ArrayList<String> {
+//        val filmList = kotlin.collections.ArrayList<String>()
+        val columns = arrayOf(COLUMN_FILM_ID, COLUMN_FILM_NAME)
+        val sortOrder = "$COLUMN_FILM_NAME ASC"
+        val filmList = ArrayList<String>()
         val db = this.readableDatabase
 
         // query the user table
-        val cursor = db.rawQuery("SELECT * FROM FAVORITE", null)
+        val cursor = db.query(TABLE_USER, columns, null, null, null, null,sortOrder)
         if (cursor.moveToFirst()) {
-            for(i in 1..cursor.count) {
-                val film = cursor.getString(0)
-
-                filmList.add(film)
-                cursor.moveToNext()
-            }
+            do{
+                val s = cursor.getString(cursor.getColumnIndex(COLUMN_FILM_NAME))
+                filmList.add(s)
+            } while(cursor.moveToNext())
+//            for(i in 1..cursor.count) {
+//                val film = cursor.getString(1)
+//
+//                filmList.add(film)
+//                cursor.moveToNext()
+//            }
         }
         cursor.close()
         db.close()
@@ -62,7 +68,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
      *
      * @param user
      */
-    fun addFilm(fname: String) : Long {
+    fun addFilm(fname: String) {
         val db = this.writableDatabase
 //
 //        val listU = db.query(TABLE_USER, //Table to query
@@ -75,14 +81,14 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 //        val numU = listU.count()
         val values = ContentValues()
 //        user.id = values
-//        values.put(COLUMN_USER_ID, user.id)
-        values.put("FName", fname)
+        values.put(COLUMN_FILM_NAME, fname)
 
         // Inserting Row
-        val ins = db.insert("FAVORITE", null, values)
+        db.insert(TABLE_USER,null, values)
+//        val ins = db.insert(TABLE_USER, null, values)
 
         db.close()
-        return ins
+//        return ins
     }
 
     /**
@@ -133,7 +139,10 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 //        val db = this.writableDatabase
 //        db.execSQL("CREATE TABLE FAVORITE (COLUMN_FILM_NAME TEXT)")
 //        db.close()
+        val columns = arrayOf(COLUMN_FILM_ID)
         val db = this.readableDatabase
+        val selection = "$COLUMN_FILM_NAME = ?"
+        val selectionArgs = arrayOf(fname)
         //val columns = arrayOf(COLUMN_FILM_NAME)
 
         // selection criteria
@@ -160,10 +169,19 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
 //        val cursorCount = cursor.count
 //        cursor.close()
-
-        val cursor = db.rawQuery("SELECT * FROM FAVORITE WHERE COLUMN_FILM_NAME=?", arrayOf(fname));
-        cursor.moveToNext()
-        if (cursor.isNull(0)) { // khong co phim nay trong table
+        db.execSQL(create_if_not)
+        val cursor = db.query(TABLE_USER,
+                columns,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null);
+//        cursor.moveToNext()
+        val cursorCount = cursor.count
+        cursor.close()
+        db.close()
+        if (cursorCount > 0) { // co phim trong data
             return true
         }
         return false
@@ -253,16 +271,17 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     companion object {
 
         // Database Version
-        private val DATABASE_VERSION = 2
+        private var DATABASE_VERSION = 1
 
         // Database Name
-        private val DATABASE_NAME = Cur.name+".db"
+        private val DATABASE_NAME = "FAVORITE.db"
 //
 //        // User table name
-//        private val TABLE_USER = "FAVORITE"
+//        private var TABLE_USER = Cur.name.toString()
 //
 //        // User Table Columns names
-//        private val COLUMN_FILM_NAME = "COLUMN_FILM_NAME"
+        private val COLUMN_FILM_ID = "FilmID"
+        private val COLUMN_FILM_NAME = "FilmName"
 
     }
 }
